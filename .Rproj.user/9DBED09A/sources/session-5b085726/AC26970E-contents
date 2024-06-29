@@ -50,7 +50,7 @@ df3<-read_csv("dados-diversos.csv")
 ```{r}
 library(gsheet)
 
-df4<-gsheet2tbl("https://docs.google.com/spreadsheets/d/1aID5Dh6PlBVCKzU1j7k-WA6zuWQWE2NhtWEgdJtt5iA/edit?usp=sharing",sheetid = 1729131173)
+df4<-gsheet2tbl("https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit?gid=983033137#gid=983033137")
 ```
 
 ##Gráficos.

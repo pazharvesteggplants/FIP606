@@ -1,0 +1,7 @@
+"0","df1<- multi_isolate"
+"0",""
+"0","library(readxl)"
+"0","df2 <- read_excel(""dados-diversos.xlsx"")"
+"0","df21<- read_excel(""dados-diversos.xlsx"", sheet= (""escala""))"
+"0","                  "
+"0","    #Se puede colocar el numero de tabla es decir, en vez de sheet escala y todo eso, simplemente colocar 2 e igual coloca bien."
