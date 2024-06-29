@@ -7,17 +7,24 @@
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
   },
   {
-    "objectID": "aula2.html",
-    "href": "aula2.html",
-    "title": "aula2",
-    "section": "",
-    "text": "En esta clase se va a ver cómo abrir bases de datos desde excel, ya sea en el computador así como en un link en específico.\nPrimero, veamos una lista de librerías que pueden ser de interés para todos nosotros:\n\nlibrary(agricolae)\nlibrary(agridat)\nlibrary(ec50estimator)\nlibrary(readxl)\nlibrary(tidyverse)\nlibrary(gsheet)\nlibrary(ggplot2)\n\nComo podemos observar, estamos llamando una base de datos que originalmente se llama “corn” y le pusimos el nombre de “dat”.\n\nlibrary(agricolae)\ndat&lt;- data(corn)\n\nVamos a traer la librería para leer exceles y se les coloca un nombre.\n\ndf1&lt;- multi_isolate\n\nlibrary(readxl)\ndf2 &lt;- read_excel(\"dados-diversos.xlsx\")\ndf21&lt;- read_excel(\"dados-diversos.xlsx\", sheet= (\"escala\"))\n                  \n    #Se puede colocar el numero de tabla es decir, en vez de sheet escala y todo eso, simplemente colocar 2 e igual coloca bien.\n\n\nlibrary(tidyverse)\ndf3&lt;-read_csv(\"dados-diversos.csv\")\n\n#Aquí estamos viendo como abrimos una hoja de datos desde un link de google docs.\n\nlibrary(gsheet)\n\ndf4&lt;-gsheet2tbl(\"https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit?gid=983033137#gid=983033137\")\n\n##Gráficos.\n#La librería de ggplot2 nos puede ayudar para convertir rápidamente estas bases de datos en formas gráficas para entender visualmente mejor la distribuición de estos datos.\n\nlibrary(ggplot2)\ng1&lt;-df4 |&gt;\n  ggplot(aes (trat, comp))+\n  geom_jitter(width = 0.05,\n               color=\"black\",\n              shape = 2,\n              size=3)+\n  geom_boxplot(outlier.color = NA,\n                  fill = \"green\")+\n  labs(x=\"Tratamento\",\n       y= \"Comprimento(mm)\",\n      title= \"meu primeiro ggplot\",\n      caption=\"Fonte: Dados diversos\")+\n  scale_y_continuous(limits = c(0,20),\n                     n.breaks = 10)#tambien se puede usar ylim(0,10)\n\ng1\n\n\n\n\n\n\n\n#Se puede colocar + theme_classic() para poder colocar un diseno más bonito.\n# Librería ggthemes da más temas bonitos"
-  },
-  {
     "objectID": "aula1.html",
     "href": "aula1.html",
     "title": "Aula1",
     "section": "",
     "text": "#Clase número 1.\n#Se realizan comentarios por medio de utilizar “#”\n#Lo primero a entender es los tipos de archivos que podemos general\n# Primero hay que hacer un proyecto, luego abrimos puede ser un documento R notebook o un Quarto.\n#Primero se debe abrir un “quote” donde se establezca que estamos colocando programación de R.\n#En estos mismos cuadros de programación, podemos empezar a definir cuáles son nuestras bases de datos, nuestros datos dentro de las bases e incluso llamar bibliotecas con las cuales podemos analizar nuestros datos.\n#En el siguiente ejemplo podemos observar como a X, Y y Z se les estan atribuyendo valores.\n\nx &lt;- 10\ny &lt;- x * 10\nz &lt;- x * y\nx &lt;- 10\n\n#Ahora, podemos observar como un data frame está siendo creado.\n\nz&lt;- x^3\nA &lt;- c(1:10)\nB&lt;- c(11:20)\nB\n\n [1] 11 12 13 14 15 16 17 18 19 20\n\ndf&lt;- data.frame(A, B)\ndf\n\n    A  B\n1   1 11\n2   2 12\n3   3 13\n4   4 14\n5   5 15\n6   6 16\n7   7 17\n8   8 18\n9   9 19\n10 10 20\n\nB&lt;- c(11:20)\n\nis.data.frame(A) \n\n[1] FALSE\n\nis.data.frame(B)\n\n[1] FALSE\n\n\n#En la siguiente línea de códigos, podemos visualizar como se abren las librerías.\n\nlibrary(agricolae)\n\ndates &lt;- c(14,21,28) #days\n\n#example 1 : evaluation - vector\n\nevaluation &lt;- c(40, 80, 90)\n\naudpc(evaluation, dates)\n\nevaluation \n      1015 \n\nlibrary(epifitter)\n\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "aula2.html",
+    "href": "aula2.html",
+    "title": "aula2",
+    "section": "",
+    "text": "En esta clase se va a ver cómo abrir bases de datos desde excel, ya sea en el computador así como en un link en específico.\nPrimero, veamos una lista de librerías que pueden ser de interés para todos nosotros:\n\nlibrary(agricolae)\nlibrary(agridat)\nlibrary(ec50estimator)\nlibrary(readxl)\nlibrary(tidyverse)\nlibrary(gsheet)\nlibrary(ggplot2)\n\nComo podemos observar, estamos llamando una base de datos que originalmente se llama “corn” y le pusimos el nombre de “dat”.\n\nlibrary(agricolae)\ndat&lt;- data(corn)\n\nVamos a traer la librería para leer exceles y se les coloca un nombre.\n\ndf1&lt;- multi_isolate\n\nlibrary(readxl)\ndf2 &lt;- read_excel(\"dados-diversos.xlsx\")\ndf21&lt;- read_excel(\"dados-diversos.xlsx\", sheet= (\"escala\"))\n                  \n    #Se puede colocar el numero de tabla es decir, en vez de sheet escala y todo eso, simplemente colocar 2 e igual coloca bien.\n\n\nlibrary(tidyverse)\ndf3&lt;-read_csv(\"dados-diversos.csv\")\n\n#Aquí estamos viendo como abrimos una hoja de datos desde un link de google docs.\n\nlibrary(gsheet)\n\ndf4&lt;-gsheet2tbl(\"https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit?gid=983033137#gid=983033137\")\n\n##Gráficos.\n#La librería de ggplot2 nos puede ayudar para convertir rápidamente estas bases de datos en formas gráficas para entender visualmente mejor la distribuición de estos datos.\n\nlibrary(ggplot2)\ng1&lt;-df4 |&gt;\n  ggplot(aes (trat, comp))+\n  geom_jitter(width = 0.05,\n               color=\"black\",\n              shape = 2,\n              size=3)+\n  geom_boxplot(outlier.color = NA,\n                  fill = \"green\")+\n  labs(x=\"Tratamento\",\n       y= \"Comprimento(mm)\",\n      title= \"meu primeiro ggplot\",\n      caption=\"Fonte: Dados diversos\")+\n  scale_y_continuous(limits = c(0,20),\n                     n.breaks = 10)#tambien se puede usar ylim(0,10)\n\ng1\n\n\n\n\n\n\n\n#Se puede colocar + theme_classic() para poder colocar un diseno más bonito.\n# Librería ggthemes da más temas bonitos"
   }
 ]

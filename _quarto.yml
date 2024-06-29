@@ -8,8 +8,8 @@ execute:
   
 website:
   title: "FIP606"
-  favicon: C:\Users\maryp\Desktop\imagens_fitopatologia/icon.png
-  image: C:\Users\maryp\Desktop\imagens_fitopatologia/marypaz.png
+  favicon: img/icon.png
+  image: img/marypaz.png
   
   navbar:
     pinned: true
