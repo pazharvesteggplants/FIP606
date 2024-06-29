@@ -21,44 +21,7 @@ website:
             text: Introdução ao R
           - href: aula2.qmd
             text: Pacotes e carregamento em R
-          - href: aula3.qmd
-            text: Data frame
-      - text: Gráficos em R
-        menu: 
-        - href: aula4.qmd
-          text: Visualização de dados em GGPLOT
-        - href: aula5.qmd
-          text: Boxplot
-        - href: aula6.qmd
-          text: Scatterplot
-      - text: Análise estatística em R
-        menu:  
-        - href: aula7.qmd
-          text: Transformação de dados
-        - href: aula18.qmd
-          text: Transformação (Box-Cox)
-        - href: aula8.qmd
-          text: Teste de hipóteses
-        - href: aula9.qmd
-          text: Tipos de análise  
-        - href: aula10.qmd
-          text: ANOVA - um fator
-        - href: aula11.qmd
-          text: ANOVA Fatorial
-        - href: aula12.qmd
-          text: ANOVA com bloco (DBC)
-        - href: aula13.qmd
-          text: Regressão linear
-        - href: aula17.qmd
-          text: Regressão não-linear
-        - href: aula14.qmd
-          text: Análise de correlação 
-        - href: Aula15.qmd
-          text: Tabela de contigência
-      - text: Mapas em R
-        menu: 
-        - href: aula16.qmd
-          text: Elaboração de Mapas
+          
   
   
     right: 
