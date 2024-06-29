@@ -3,24 +3,24 @@
     "path": "C:/Users/maryp/Documents/FIP6062/_quarto.yml",
     "project_path": "_quarto.yml",
     "type": "yaml",
-    "hash": "0",
+    "hash": "3656380961",
     "contents": "",
-    "dirty": true,
+    "dirty": false,
     "created": 1719697510805.0,
     "source_on_save": false,
     "relative_order": 1,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "19,22",
-        "scrollLine": "8"
+        "cursorPosition": "14,16",
+        "scrollLine": "9"
     },
     "folds": "",
-    "lastKnownWriteTime": 1719698932,
+    "lastKnownWriteTime": 1719700232,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1719699965509,
+    "last_content_update": 1719700232351,
     "read_only": false,
     "read_only_alternatives": []
 }

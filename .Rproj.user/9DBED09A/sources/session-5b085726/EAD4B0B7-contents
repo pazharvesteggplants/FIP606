@@ -8,7 +8,7 @@ execute:
   
 website:
   title: "FIP606"
-  icon: C:\Users\maryp\Desktop\imagens_fitopatologia/icon.png
+  favicon: C:\Users\maryp\Desktop\imagens_fitopatologia/icon.png
   image: C:\Users\maryp\Desktop\imagens_fitopatologia/marypaz.png
   
   navbar:
@@ -17,47 +17,47 @@ website:
     left:
       - text: Básico do R
         menu:
-          - href: aula.qmd
+          - href: aula1.qmd
             text: Introdução ao R
-          - href: Aula2.qmd
+          - href: aula2.qmd
             text: Pacotes e carregamento em R
-          - href: Aula3.qmd
+          - href: aula3.qmd
             text: Data frame
       - text: Gráficos em R
         menu: 
-        - href: Aula4.qmd
+        - href: aula4.qmd
           text: Visualização de dados em GGPLOT
-        - href: Aula5.qmd
+        - href: aula5.qmd
           text: Boxplot
-        - href: Aula6.qmd
+        - href: aula6.qmd
           text: Scatterplot
       - text: Análise estatística em R
         menu:  
-        - href: Aula7.qmd
+        - href: aula7.qmd
           text: Transformação de dados
-        - href: Aula18.qmd
+        - href: aula18.qmd
           text: Transformação (Box-Cox)
-        - href: Aula8.qmd
+        - href: aula8.qmd
           text: Teste de hipóteses
-        - href: Aula9.qmd
+        - href: aula9.qmd
           text: Tipos de análise  
-        - href: Aula10.qmd
+        - href: aula10.qmd
           text: ANOVA - um fator
-        - href: Aula11.qmd
+        - href: aula11.qmd
           text: ANOVA Fatorial
-        - href: Aula12.qmd
+        - href: aula12.qmd
           text: ANOVA com bloco (DBC)
-        - href: Aula13.qmd
+        - href: aula13.qmd
           text: Regressão linear
-        - href: Aula17.qmd
+        - href: aula17.qmd
           text: Regressão não-linear
-        - href: Aula14.qmd
+        - href: aula14.qmd
           text: Análise de correlação 
         - href: Aula15.qmd
           text: Tabela de contigência
       - text: Mapas em R
         menu: 
-        - href: Aula16.qmd
+        - href: aula16.qmd
           text: Elaboração de Mapas
   
   
