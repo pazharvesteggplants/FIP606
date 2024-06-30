@@ -1,0 +1,587 @@
+---
+title: "aula9"
+format: html
+editor: visual
+---
+
+# Análisi de Modelo Mixto, Correlación y Regresión Linear.
+
+## Pudrición de maíz.
+
+Cada híbrido está dentro de cada bloque, el bloque se aleatorizó dentro de cada bloque.
+
+Se sortean los tratamientos del híbrido y los del método.
+
+Se sortean estos híbridos dentro de cada bloque.
+
+Es una parcela subdivida. ¿Cuándo es una parcela sub-sub dividida? Cuando hay 3 factores.
+
+Nuestro modelo estadístico va a ser diferente, no es híbrido vs método+ bloque, se debe utilizar el valor b o utilizar un modelo mixto (mixtura entre un factor fijo y uno aleatorio). Ese es el modelo mixto, es un paquete diferente para estructurar esta situación (efecto aleatorio del híbrido).
+
+## Parcela subdividida
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(gsheet)
+library(ggplot2)
+library(DHARMa)
+library(multcomp)
+library(multcompView)
+library(emmeans)
+milho <- gsheet2tbl('https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit#gid=1345524759')
+```
+
+## Index
+
+```{r}
+milho |>
+  ggplot(aes(method, index))+
+  geom_jitter(width = 0.1, alpha=0.2)+
+  facet_wrap(~hybrid)+
+  stat_summary(fun.data='mean_cl_boot', size=0.5, color = 'pink')
+```
+
+```{r}
+library(lme4)
+
+milho<-milho|>
+  mutate(block = as.factor(block))
+mix2<- lmer(index ~ hybrid*method + block+
+              (1|block/hybrid), data = milho)
+
+anova(mix2)
+library(car)
+
+```
+
+1\|block/hybrid indica la función (con efecto aleatorio). El resultado para la interacción entre híbrido y method es significativa.
+
+### Premisas
+
+```{r}
+library(performance)
+check_normality(mix2)
+check_heteroscedasticity(mix2)
+simulate_residuals(mix2)
+```
+
+```{r}
+plot(simulateResiduals(mix2))
+qqnorm(residuals(mix2))
+qqline(residuals(mix2))
+hist(residuals(mix2))
+```
+
+# Test de comparar medias
+
+```{r}
+medias_milho <- emmeans(mix2,
+                        ~ hybrid | method,
+                        type = "response")
+
+medias_milho2 <- emmeans(mix2,
+                         ~ method | hybrid,
+                         type = "response")
+
+cld(medias_milho, Letters = LETTERS)
+cld(medias_milho2, Letters = LETTERS)
+```
+
+```{r}
+library(ggplot2)
+library(Hmisc)
+
+index <- milho |>
+  ggplot(aes(hybrid, index))+
+  geom_jitter(width = 0.05, color = 
+                "gray")+
+  stat_summary(fun.data = 
+                 "mean_cl_boot", size = 0.5, color = 
+                 "red", alpha = 0.5)
+index
+
+yield <- milho |>
+  ggplot(aes(hybrid, yield))+
+  geom_jitter(width = 0.05, color = 
+                "gray")+
+  stat_summary(fun.data = 
+                 "mean_cl_boot", size = 0.5, color = 
+                 "red", alpha = 0.5)
+library(ggplot2)
+library(Hmisc)
+
+yield <- milho |>
+  ggplot(aes(hybrid, yield))+
+  geom_jitter(width = 0.05, color = 
+                "gray")+
+  stat_summary(fun.data = 
+                 "mean_cl_boot", size = 0.5, color = 
+                 "red", alpha = 0.5)
+
+```
+
+![](images/clipboard-1362719507.png)
+
+```{r}
+library(performance)
+milho |> 
+  ggplot(aes(method, index))+
+  geom_jitter(width =0.1, alpha = 0.2)+
+  facet_wrap(~ hybrid)+
+  stat_summary(fun.data = "mean_cl_boot", size 
+               = 0.5, color = "purple")
+
+library(DHARMa)
+plot(simulateResiduals(mix2))
+qqnorm(residuals(mix2))
+qqline(residuals(mix2))
+hist(residuals(mix2))
+
+library(emmeans)
+medias_milho <- emmeans(mix2,
+                        ~hybrid | method,
+                        type= 'response'
+                        )
+medias_milho <- emmeans(mix2,
+                        ~method | hybrid,
+                        type= 'response'
+                        )
+library(multcomp)
+cld(medias_milho)
+cld(medias_milho2)
+```
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+mix3 <- lmer(yield ~ hybrid *method + block + (1|block/hybrid), data = milho)
+
+(mix3)
+check_heteroscedasticity(mix3)
+check_normality(mix3)
+
+library(DHARMa)
+plot(simulateResiduals(mix2))
+qqnorm(residuals(mix2))
+qqline(residuals(mix2))
+hist(residuals(mix2))
+
+library(emmeans)
+medias_milho <- emmeans(mix2,
+                        ~hybrid | method,
+                        type= 'response')
+medias_milho <- emmeans(mix2,
+                        ~method | hybrid,
+                        type= 'response')
+library(multcomp)
+cld(medias_milho)
+cld(medias_milho2)
+```
+
+# Importar datos de arroz
+
+```{r}
+arroz<-gsheet2tbl('https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit#gid=401662555')
+
+```
+
+Si se inocula una semilla de arroz de 0 a 48%.
+
+```{r}
+arroz |>
+  ggplot(aes(trat, nplants),theme_classic())+
+  geom_point(width = 0.1, alpha=0.2)+
+  facet_wrap(~exp)+
+  stat_summary(fun.data='mean_cl_boot', size=0.5, color = 'pink')+
+  geom_smooth(method = lm, se=FALSE)
+```
+
+```{r}
+exp1 <- arroz |>
+  filter(exp==1)
+exp1 |>
+  ggplot(aes(trat, nplants))+
+  geom_point()+
+  ylim(0,100)+
+   geom_smooth(se=FALSE)
+```
+
+# Modelo de regresión linear simple:
+
+```{r}
+lm1 <- lm(nplants ~ trat,
+          data= exp1)
+summary(lm1)
+```
+
+La hipotesis nula dice que el coeficiente de regresión es igual a 0 (no tiene efecto). Para cada 1% de inóculo se reduce 0,24. Como el valor p fue mayor que 0,05, no rejecta H0, entonces no tiene efecto.
+
+### Experimento 2
+
+```{r}
+exp2 <- arroz |>
+  filter(exp==2)
+exp2 |>
+  ggplot(aes(trat, nplants))+
+  geom_point()+
+  ylim(0,100)+
+   geom_smooth(se=FALSE)
+
+lm2 <- lm(nplants ~ trat,
+          data= exp2)
+summary(lm2)
+```
+
+### Experimento 3
+
+```{r}
+exp3 <- arroz |>
+  filter(exp==3)
+exp3 |>
+  ggplot(aes(trat, nplants))+
+  geom_point()+
+  ylim(0,100)+
+   geom_smooth(se=FALSE)
+
+lm3 <- lm(nplants ~ trat,
+          data= exp3)
+summary(lm3)
+hist(residuals(lm3))
+hist(residuals(lm1))
+```
+
+Adjusted R-squared: 0,59 de y explica x en un 59%, el restante no se conoce.
+
+# GLM y AIC
+
+```{r}
+
+glm1 <- glm(nplants ~ trat, family = 'gaussian',
+            data = exp1)
+summary(glm1)
+AIC(glm1)
+
+glm2 <- glm(nplants ~ trat, family = 'gaussian',
+            data = exp2)
+summary(glm2)
+AIC(glm2)
+
+glm2b <- glm(nplants ~ trat, family = 'poisson',
+            data = exp2)
+summary(glm2b)
+AIC(glm2b)
+
+glm3 <- glm(nplants ~ trat, family = 'gaussian',
+            data = exp3)
+summary(glm3)
+AIC(glm3)
+glm3b <- glm(nplants ~ trat, family = 'poisson',
+            data = exp3)
+summary(glm3b)
+AIC(glm3b)
+
+```
+
+```{r}
+library(lme4)
+glm3 <- glmer(nplants ~ trat+ (trat| exp), family = 'gaussian',
+            data = arroz)
+summary(glm3)
+AIC(glm3)
+glm3b <- glmer(nplants ~ trat+ (trat| exp), family = poisson(link = log),
+            data = arroz)
+summary(glm3b)
+AIC(glm3b)
+```
+
+# Moho blanco en soya
+
+```{r}
+library(r4pde)
+
+wm<- WhiteMoldSoybean
+wm |>
+  ggplot(aes(inc,yld))+
+  geom_point()+
+  facet_wrap(~study)+
+  theme_minimal()
+```
+
+```{r}
+mofo1<- lm(yld ~ inc,
+           data= wm)
+summary(mofo1)
+```
+
+#Se tienen 3299 kg/h de produccion al haber incidencia cero
+
+#Se disminuye por 9.2 por cada porcentual aumentado.
+
+```{r}
+wm |> 
+  ggplot(aes(inc, yld,
+             #group = factor(study)
+             color = factor(study)
+             ))+
+  geom_point()+
+  #facet_wrap(~ study)+
+  geom_smooth(method = "lm", se = F)
+  #theme_minimal()
+```
+
+```{r}
+library(broom)
+mofo2<- wm%>%
+  group_by(study) |>
+  do(tidy(lm(.$yld ~ .$inc),conf.int=TRUE))
+mofo2
+df <- mofo2 |> filter (term == '.$inc')
+mean (df$estimate)
+
+fit_all <- wm%>%
+  group_by(study) |> 
+  do(broom::tidy(lm(.$yld ~ .$inc), conf.int=TRUE))
+fit_all
+
+p3 <- fit_all |> 
+  filter(term == "(Intercept)") |> 
+  ggplot(aes(x = estimate))+
+  geom_histogram(bins = 8, color = "white", fill = "gray50")+
+  theme_r4pde()+
+  labs(x = "Intercept", y = "Frequency")
+
+p4 <- fit_all |> 
+  filter(term == ".$inc") |> 
+  ggplot(aes(x = estimate))+
+  geom_histogram(bins = 8, color = "white", fill = "gray50")+
+  theme_r4pde()+
+  labs(x = "Slope", y = "Frequency")
+
+
+library(patchwork)
+p3 | p4
+```
+
+```{r}
+library(lme4)
+mofo3 <- lmer(yld~inc + (inc|study), data = wm,
+              REML= F)
+summary(mofo3)
+Anova(mofo3)
+confint(mofo3, method= 'Wald')
+```
+
+Aqui se ve que el intercepto es de 3255 kg/h al haber 0 incidencia y cada porcentaje de incidencia aumentado, se pieden 17,23 kg/ha
+
+# Correlacion linear
+Podemos escoger modelos que pasan más próximos a todos los puntos, por lo que algunas regresiones estadísticas tienen diferentes modelos que pueden ser escogidos (PE regresiones no lineares).
+
+Crecimiento micelial / dosis cuál es la dosis que inhibe el 50% del crecimiento micelial, podemos hacer una comparación entre diferentes isolados fúngicos. Depende de la respuesta que nosotros modelamos.
+
+Correlaciones: Es una asociacion entre 2 variables, también puede ser una disociación.
+
+El incremento de una variable A y B, esta asociación en caso de que ambos datos aumenten, su relación es positiva.
+
+Entre más disaciociada(dispersa), esta se vuelve más cercana.
+
+Correlación de pearson: 0 -1
+
+Cuanto más disperson, menor el número de correlación.
+
+Una relación de causa efecto (uno aumenta y otro disminuye), como por ejemplo cuando una enfermedad aumenta y la productividad disminuye, puede tener una correlación negativa.
+
+La regresión también se puede hacer también entre dos variables.
+
+R^2 = Al hacer la raíz de este resultado, siempre da menor a r. R2 es el coeficiente de determinación. Cuánto explica x a y.
+
+r Es la fuerza de asociación entre x e y
+```{r}
+img <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit#gid=373270992")
+
+p1 <- img |> 
+  ggplot(aes(Assess, ImageJ))+
+  geom_point()+
+  geom_smooth(method = "lm")
+
+p2 <- img |> 
+  ggplot(aes(Assess, LeafDoctor))+
+  geom_point()+
+  geom_smooth(method = "lm")
+
+img |> 
+  pivot_longer(3:5, names_to = "method",
+               values_to = "value") |> 
+  ggplot(aes(method, value))+
+  geom_boxplot()
+```
+
+```{r}
+p1 + p2
+```
+
+```{r}
+img2 <- img |> 
+  dplyr::select(Assess, LeafDoctor, ImageJ)
+
+library(AgroR)
+corgraph(img2)
+```
+
+```{r}
+cor.test(img$Assess, img$LeafDoctor)
+```
+
+En este caso, la conclusión el assess es el programa estándar para que de una relación buena, si podemos sustituir el assess con otros datos, igualmente podemos recibir nuevas relaciones causa efecto por medio de respuestas/métodos diferentes.
+
+```{r}
+cor(img$Assess, img$LeafDoctor)
+```
+
+```{r}
+library(corrplot)
+cor_img2 <- cor(img2)
+corrplot(cor_img2, method = 'number', type = "lower")
+```
+
+Nos da colores de los numeros dentro de la relacion y la matriz.
+
+Ahora trabajemos con otro conjunto de datos.
+
+```{r}
+cor_img2 <- cor(img2)
+corrplot(cor_img2, method = 'number', type = "upper")
+```
+
+
+```{r}
+campo <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit#gid=866852711")
+
+campo2 <- campo |> 
+  dplyr::select(DFC, FER, PROD)
+
+corgraph(campo2)
+```
+
+Un problema que tenemos en campo, es que tenemos 2 enfermedades y queremos saber cual esta mas relacionada con la produccion.
+
+En esta podemos ver que el DFC influye mas y donde hay DFC hay ferrugem pues estan correlacionadas.
+
+```{r}
+cor.test(campo$PROD, campo$DFC)
+```
+
+```{r}
+cor.test(campo$PROD, campo$FER)
+```
+
+```{r}
+campo |>
+  ggplot(aes(DFC, PROD))+
+  geom_point()
+```
+
+# Modelo cuadrático de regresión linear.
+
+Vamos a comparar los métodos linear y con el cuadrático.
+
+```{r}
+exp2 <- arroz |> 
+  dplyr::filter(exp == 2)
+
+exp2 |> 
+  ggplot(aes(trat, nplants))+
+  geom_point()+
+ # stat_summary(fun.data = "mean_cl_boot", size = 0.5, color = "black",
+ #              alpha = 0.5)+
+  ylim(0,100)+
+  geom_smooth(method = "lm",
+              se = FALSE,
+              formula = y ~poly(x,2),
+              color = "black")+
+  geom_smooth(method = "lm",
+              se = FALSE)
+```
+
+## Primer orden (Modelo linear)
+
+```{r}
+lm2 <- lm(nplants ~trat,
+          data = exp2)
+summary(lm2)
+```
+
+```{r}
+hist(residuals(lm2))
+AIC(lm2)
+```
+
+```{r}
+exp2$trat2 <- exp2$trat^2
+
+lm3 <- lm(nplants ~trat + trat2,
+          data = exp2)
+summary(lm3)
+```
+
+```{r}
+hist(residuals(lm3))
+AIC(lm3)
+```
+Conclusion: EL r2 se explica mejor con la regresion cuadratica que con la linear.
+
+Segun AIC tambien el modelo cuadratico explica mejor la variacion (diferencia de 43% a 49%), entre menor es mejor,
+
+Y= 66,3 - 1,77 x TRAT + 0,02 x TRAT^2
+
+```{r}
+with(exp2, polynomial(trat, nplants, grau = 3))
+```
+Se puede ver los intervalos de confianza para cada punto, ajustando segun lo que calculo abajo, para dar un R^2.
+
+grau 1 = linear.
+
+Grau 2= cuadratico, modelino curvilinear.
+
+grau 3 = cubica, no tiene una explicacion biologica por lo que casi no se utiliza para esta aumentar entre dos tractos.
+
+# Datos de sensibilidad de fungicidas.
+
+```{r}
+pyra <- gsheet2tbl("https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit#gid=465348652")
+
+pyra2 <- pyra |>
+  group_by(code, state, dose) |> 
+  summarise(mean_germination = mean(germination))
+
+pyra2|> 
+  ggplot(aes(dose, mean_germination))+
+  geom_point()+
+  facet_wrap(~code)
+```
+
+## Filtrar Isolado 186
+
+```{r}
+library(drc)
+
+isolado186 <- pyra2 |> 
+   filter(code == "186")
+
+drc1 <- drm(mean_germination ~ dose, data = isolado186,
+            fct = W1.3())
+
+AIC(drc1)
+```
+
+```{r}
+plot(drc1)
+```
+
+Si la estimativa fuera mas alta, es mas sensible al fungicida.
+
+Si la estimativa (Estimate) fuera mas baja, es menos sensible al fungicida.
+
+Entre menor es el AIC, mejor.
