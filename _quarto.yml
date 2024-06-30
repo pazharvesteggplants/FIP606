@@ -14,16 +14,39 @@ website:
   navbar:
     pinned: true
     logo: icon.png
-    left:
-      - text: Básico do R
+     left:
+
+      - text: Fundamentos
         menu:
-          - href: aula1.qmd
-            text: Introdução ao R
-          - href: aula2.qmd
-            text: Pacotes e carregamento em R
-          
-  
-  
+          - href: Aula1.qmd
+            text: Algumas funções do R
+          - href: Aula2.qmd
+            text: Importação e visualização dos dados
+        
+      - text: Visualização dos dados
+        menu:
+          - href: 
+            text: Gráficos com ggplot
+          - href: 
+            text: Gráficos com ggplot - Parte 2
+        
+      - href: 
+        text: Análise Descritiva
+        
+      - text: Análise Inferencial
+        menu:
+          - href: 
+            text: Teste T e ANOVA
+          - href: 
+            text: ANOVA
+          - href: 
+            text: Análise de Modelo Misto, Correlação e Regressão Linear
+            
+      - href: 
+        text: Criação de mapas   
+      
+      
+      
     right: 
      - icon: github
        href: https://github.com/pazharvesteggplant
