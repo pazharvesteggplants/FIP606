@@ -2,7 +2,7 @@
 about: 
   template: jolla
   id: about-block
-  image: "img/marypaz.jpg"
+  image: "img/marypaz.jpeg"
   image-shape: round
   links:
     - icon: instagram

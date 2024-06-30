@@ -3,7 +3,7 @@
     "path": "C:/Users/maryp/Documents/FIP6062/index.qmd",
     "project_path": "index.qmd",
     "type": "quarto_markdown",
-    "hash": "2774873620",
+    "hash": "552433831",
     "contents": "",
     "dirty": false,
     "created": 1719705888462.0,
@@ -17,15 +17,15 @@
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
         "rmdVisualModeLocation": "25:0",
-        "cursorPosition": "28,0",
-        "scrollLine": "8"
+        "cursorPosition": "6,8",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1719706812,
+    "lastKnownWriteTime": 1719708369,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1719706812421,
+    "last_content_update": 1719708369031,
     "read_only": false,
     "read_only_alternatives": []
 }
