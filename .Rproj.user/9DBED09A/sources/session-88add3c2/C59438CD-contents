@@ -1,0 +1,82 @@
+---
+title: "aula2"
+format: html
+editor: visual
+---
+
+En esta clase se va a ver cómo abrir bases de datos desde excel, ya sea en el computador así como en un link en específico.
+
+Primero, veamos una lista de librerías que pueden ser de interés para todos nosotros:
+
+```{r}
+library(agricolae)
+library(agridat)
+library(ec50estimator)
+library(readxl)
+library(tidyverse)
+library(gsheet)
+library(ggplot2)
+
+```
+
+Como podemos observar, estamos llamando una base de datos que originalmente se llama "corn" y le pusimos el nombre de "dat".
+
+```{r}
+library(agricolae)
+dat<- data(corn)
+
+```
+
+Vamos a traer la librería para leer exceles y se les coloca un nombre.
+
+```{r}
+df1<- multi_isolate
+
+library(readxl)
+df2 <- read_excel("dados-diversos.xlsx")
+df21<- read_excel("dados-diversos.xlsx", sheet= ("escala"))
+                  
+    #Se puede colocar el numero de tabla es decir, en vez de sheet escala y todo eso, simplemente colocar 2 e igual coloca bien.
+```
+
+```{r}
+library(tidyverse)
+df3<-read_csv("dados-diversos.csv")
+
+```
+
+#Aquí estamos viendo como abrimos una hoja de datos desde un link de google docs.
+
+```{r}
+library(gsheet)
+
+df4<-gsheet2tbl("https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit?gid=983033137#gid=983033137")
+```
+
+##Gráficos.
+
+#La librería de ggplot2 nos puede ayudar para convertir rápidamente estas bases de datos en formas gráficas para entender visualmente mejor la distribuición de estos datos.
+
+```{r}
+library(ggplot2)
+g1<-df4 |>
+  ggplot(aes (trat, comp))+
+  geom_jitter(width = 0.05,
+               color="black",
+              shape = 2,
+              size=3)+
+  geom_boxplot(outlier.color = NA,
+                  fill = "green")+
+  labs(x="Tratamento",
+       y= "Comprimento(mm)",
+      title= "meu primeiro ggplot",
+      caption="Fonte: Dados diversos")+
+  scale_y_continuous(limits = c(0,20),
+                     n.breaks = 10)#tambien se puede usar ylim(0,10)
+
+g1
+
+#Se puede colocar + theme_classic() para poder colocar un diseno más bonito.
+# Librería ggthemes da más temas bonitos
+
+```

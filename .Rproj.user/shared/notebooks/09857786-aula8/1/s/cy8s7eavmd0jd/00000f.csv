@@ -1,0 +1,6 @@
+"0","avg_riego <- riego |>"
+"0","  group_by(Irrigation,day)|>"
+"0","  summarize(avg_severity = mean(severity))"
+"1","[38;5;252m`summarise()` has grouped output by 'Irrigation'. You can override
+using the `.groups` argument.[39m
+"

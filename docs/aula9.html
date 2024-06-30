@@ -1,0 +1,2338 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.555">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>FIP606 - aula9</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./img/icon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/icon.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">FIP606</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bases" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Bases</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-bases">    
+        <li>
+    <a class="dropdown-item" href="./aula1.html">
+ <span class="dropdown-text">Una breve introducción.</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./aula2.html">
+ <span class="dropdown-text">Importar y visualizar datos.</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-visualización-de-datos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Visualización de datos</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-visualización-de-datos">    
+        <li>
+    <a class="dropdown-item" href="./aula3.html">
+ <span class="dropdown-text">Gráficos com ggplot.</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./aula4.html">
+ <span class="dropdown-text">Gráficos com ggplot - Parte 2.</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./aula5.html"> 
+<span class="menu-text">Análisis Descriptivo</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-análisis-inferencial" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Análisis Inferencial</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-análisis-inferencial">    
+        <li>
+    <a class="dropdown-item" href="./aula6.html">
+ <span class="dropdown-text">Test T y ANOVA.</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./aula8.html">
+ <span class="dropdown-text">ANOVA.</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./aula9.html">
+ <span class="dropdown-text">Análisis Modelo Mixto, Correlación y Regresión Linear.</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./aula11.html"> 
+<span class="menu-text">Visualizar mapas.</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/pazharvesteggplant"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/paz_harvest_eggplants/"> <i class="bi bi-instagram" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#análisi-de-modelo-mixto-correlación-y-regresión-linear." id="toc-análisi-de-modelo-mixto-correlación-y-regresión-linear." class="nav-link active" data-scroll-target="#análisi-de-modelo-mixto-correlación-y-regresión-linear.">Análisi de Modelo Mixto, Correlación y Regresión Linear.</a>
+  <ul class="collapse">
+  <li><a href="#pudrición-de-maíz." id="toc-pudrición-de-maíz." class="nav-link" data-scroll-target="#pudrición-de-maíz.">Pudrición de maíz.</a></li>
+  <li><a href="#parcela-subdividida" id="toc-parcela-subdividida" class="nav-link" data-scroll-target="#parcela-subdividida">Parcela subdividida</a></li>
+  <li><a href="#index" id="toc-index" class="nav-link" data-scroll-target="#index">Index</a>
+  <ul class="collapse">
+  <li><a href="#premisas" id="toc-premisas" class="nav-link" data-scroll-target="#premisas">Premisas</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#test-de-comparar-medias" id="toc-test-de-comparar-medias" class="nav-link" data-scroll-target="#test-de-comparar-medias">Test de comparar medias</a></li>
+  <li><a href="#importar-datos-de-arroz" id="toc-importar-datos-de-arroz" class="nav-link" data-scroll-target="#importar-datos-de-arroz">Importar datos de arroz</a></li>
+  <li><a href="#modelo-de-regresión-linear-simple" id="toc-modelo-de-regresión-linear-simple" class="nav-link" data-scroll-target="#modelo-de-regresión-linear-simple">Modelo de regresión linear simple:</a>
+  <ul class="collapse">
+  <li><a href="#experimento-2" id="toc-experimento-2" class="nav-link" data-scroll-target="#experimento-2">Experimento 2</a></li>
+  <li><a href="#experimento-3" id="toc-experimento-3" class="nav-link" data-scroll-target="#experimento-3">Experimento 3</a></li>
+  </ul></li>
+  <li><a href="#glm-y-aic" id="toc-glm-y-aic" class="nav-link" data-scroll-target="#glm-y-aic">GLM y AIC</a></li>
+  <li><a href="#moho-blanco-en-soya" id="toc-moho-blanco-en-soya" class="nav-link" data-scroll-target="#moho-blanco-en-soya">Moho blanco en soya</a></li>
+  <li><a href="#correlacion-linear" id="toc-correlacion-linear" class="nav-link" data-scroll-target="#correlacion-linear">Correlacion linear</a></li>
+  <li><a href="#modelo-cuadrático-de-regresión-linear." id="toc-modelo-cuadrático-de-regresión-linear." class="nav-link" data-scroll-target="#modelo-cuadrático-de-regresión-linear.">Modelo cuadrático de regresión linear.</a>
+  <ul class="collapse">
+  <li><a href="#primer-orden-modelo-linear" id="toc-primer-orden-modelo-linear" class="nav-link" data-scroll-target="#primer-orden-modelo-linear">Primer orden (Modelo linear)</a></li>
+  </ul></li>
+  <li><a href="#datos-de-sensibilidad-de-fungicidas." id="toc-datos-de-sensibilidad-de-fungicidas." class="nav-link" data-scroll-target="#datos-de-sensibilidad-de-fungicidas.">Datos de sensibilidad de fungicidas.</a>
+  <ul class="collapse">
+  <li><a href="#filtrar-isolado-186" id="toc-filtrar-isolado-186" class="nav-link" data-scroll-target="#filtrar-isolado-186">Filtrar Isolado 186</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">aula9</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="análisi-de-modelo-mixto-correlación-y-regresión-linear." class="level1">
+<h1>Análisi de Modelo Mixto, Correlación y Regresión Linear.</h1>
+<section id="pudrición-de-maíz." class="level2">
+<h2 class="anchored" data-anchor-id="pudrición-de-maíz.">Pudrición de maíz.</h2>
+<p>Cada híbrido está dentro de cada bloque, el bloque se aleatorizó dentro de cada bloque.</p>
+<p>Se sortean los tratamientos del híbrido y los del método.</p>
+<p>Se sortean estos híbridos dentro de cada bloque.</p>
+<p>Es una parcela subdivida. ¿Cuándo es una parcela sub-sub dividida? Cuando hay 3 factores.</p>
+<p>Nuestro modelo estadístico va a ser diferente, no es híbrido vs método+ bloque, se debe utilizar el valor b o utilizar un modelo mixto (mixtura entre un factor fijo y uno aleatorio). Ese es el modelo mixto, es un paquete diferente para estructurar esta situación (efecto aleatorio del híbrido).</p>
+</section>
+<section id="parcela-subdividida" class="level2">
+<h2 class="anchored" data-anchor-id="parcela-subdividida">Parcela subdividida</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gsheet)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DHARMa)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcompView)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>milho <span class="ot">&lt;-</span> <span class="fu">gsheet2tbl</span>(<span class="st">'https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit#gid=1345524759'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="index" class="level2">
+<h2 class="anchored" data-anchor-id="index">Index</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>milho <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(method, index))<span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>hybrid)<span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data=</span><span class="st">'mean_cl_boot'</span>, <span class="at">size=</span><span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">'pink'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>milho<span class="ot">&lt;-</span>milho<span class="sc">|&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">block =</span> <span class="fu">as.factor</span>(block))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>mix2<span class="ot">&lt;-</span> <span class="fu">lmer</span>(index <span class="sc">~</span> hybrid<span class="sc">*</span>method <span class="sc">+</span> block<span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>              (<span class="dv">1</span><span class="sc">|</span>block<span class="sc">/</span>hybrid), <span class="at">data =</span> milho)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mix2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+              npar  Sum Sq Mean Sq F value
+hybrid           5 262.548  52.510  3.1194
+method           1  79.053  79.053  4.6963
+block            3   3.630   1.210  0.0719
+hybrid:method    5 266.064  53.213  3.1612</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>1|block/hybrid indica la función (con efecto aleatorio). El resultado para la interacción entre híbrido y method es significativa.</p>
+<section id="premisas" class="level3">
+<h3 class="anchored" data-anchor-id="premisas">Premisas</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(performance)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(mix2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>OK: residuals appear as normally distributed (p = 0.635).</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_heteroscedasticity</span>(mix2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Warning: Heteroscedasticity (non-constant error variance) detected (p = 0.009).</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">simulate_residuals</span>(mix2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simulated residuals from a model of class `lmerMod` based on 250
+  simulations. Use `check_residuals()` to check uniformity of residuals or
+  `residuals()` to extract simulated residuals. It is recommended to refer
+  to `?DHARMa::simulateResiudals` and `vignette("DHARMa")` for more
+  information about different settings in particular situations or for
+  particular models.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">simulateResiduals</span>(mix2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(mix2))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(<span class="fu">residuals</span>(mix2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">residuals</span>(mix2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="test-de-comparar-medias" class="level1">
+<h1>Test de comparar medias</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>medias_milho <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(mix2,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                        <span class="sc">~</span> hybrid <span class="sc">|</span> method,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>medias_milho2 <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(mix2,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>                         <span class="sc">~</span> method <span class="sc">|</span> hybrid,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>                         <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cld</span>(medias_milho, <span class="at">Letters =</span> LETTERS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>method = pin:
+ hybrid   emmean   SE   df lower.CL upper.CL .group
+ BG7049H    19.4 8.13 1022     3.49     35.4  A    
+ 30K64      20.6 8.13 1022     4.59     36.5  A    
+ 30F53 YH   24.6 8.13 1022     8.64     40.6  AB   
+ 30F53 HX   25.3 8.13 1022     9.32     41.2  AB   
+ 30S31YH    32.5 8.13 1022    16.54     48.5  AB   
+ 30S31H     38.1 8.13 1022    22.14     54.1   B   
+
+method = silk:
+ hybrid   emmean   SE   df lower.CL upper.CL .group
+ BG7049H    19.2 8.13 1022     3.22     35.1  A    
+ 30K64      21.5 8.13 1022     5.54     37.5  A    
+ 30F53 HX   25.0 8.13 1022     9.04     41.0  A    
+ 30F53 YH   26.2 8.13 1022    10.29     42.2  A    
+ 30S31H     26.5 8.13 1022    10.54     42.5  A    
+ 30S31YH    26.6 8.13 1022    10.69     42.6  A    
+
+Results are averaged over the levels of: block 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+P value adjustment: tukey method for comparing a family of 6 estimates 
+significance level used: alpha = 0.05 
+NOTE: If two or more means share the same grouping symbol,
+      then we cannot show them to be different.
+      But we also did not show them to be the same. </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cld</span>(medias_milho2, <span class="at">Letters =</span> LETTERS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>hybrid = 30F53 HX:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     25.0 8.13 1022     9.04     41.0  A    
+ pin      25.3 8.13 1022     9.32     41.2  A    
+
+hybrid = 30F53 YH:
+ method emmean   SE   df lower.CL upper.CL .group
+ pin      24.6 8.13 1022     8.64     40.6  A    
+ silk     26.2 8.13 1022    10.29     42.2  A    
+
+hybrid = 30K64:
+ method emmean   SE   df lower.CL upper.CL .group
+ pin      20.6 8.13 1022     4.59     36.5  A    
+ silk     21.5 8.13 1022     5.54     37.5  A    
+
+hybrid = 30S31H:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     26.5 8.13 1022    10.54     42.5  A    
+ pin      38.1 8.13 1022    22.14     54.1   B   
+
+hybrid = 30S31YH:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     26.6 8.13 1022    10.69     42.6  A    
+ pin      32.5 8.13 1022    16.54     48.5  A    
+
+hybrid = BG7049H:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     19.2 8.13 1022     3.22     35.1  A    
+ pin      19.4 8.13 1022     3.49     35.4  A    
+
+Results are averaged over the levels of: block 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+significance level used: alpha = 0.05 
+NOTE: If two or more means share the same grouping symbol,
+      then we cannot show them to be different.
+      But we also did not show them to be the same. </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>index <span class="ot">&lt;-</span> milho <span class="sc">|&gt;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(hybrid, index))<span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.05</span>, <span class="at">color =</span> </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">"gray"</span>)<span class="sc">+</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> </span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"mean_cl_boot"</span>, <span class="at">size =</span> <span class="fl">0.5</span>, <span class="at">color =</span> </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>yield <span class="ot">&lt;-</span> milho <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(hybrid, yield))<span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.05</span>, <span class="at">color =</span> </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">"gray"</span>)<span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"mean_cl_boot"</span>, <span class="at">size =</span> <span class="fl">0.5</span>, <span class="at">color =</span> </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>yield <span class="ot">&lt;-</span> milho <span class="sc">|&gt;</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(hybrid, yield))<span class="sc">+</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.05</span>, <span class="at">color =</span> </span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>                <span class="st">"gray"</span>)<span class="sc">+</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> </span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"mean_cl_boot"</span>, <span class="at">size =</span> <span class="fl">0.5</span>, <span class="at">color =</span> </span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/clipboard-1362719507.png" class="img-fluid"></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(performance)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>milho <span class="sc">|&gt;</span> </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(method, index))<span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span><span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> hybrid)<span class="sc">+</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> <span class="st">"mean_cl_boot"</span>, size </span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>               <span class="ot">=</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"purple"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DHARMa)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">simulateResiduals</span>(mix2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(mix2))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(<span class="fu">residuals</span>(mix2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-8-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">residuals</span>(mix2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-8-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>medias_milho <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(mix2,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                        <span class="sc">~</span>hybrid <span class="sc">|</span> method,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">type=</span> <span class="st">'response'</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>                        )</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>medias_milho <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(mix2,</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>                        <span class="sc">~</span>method <span class="sc">|</span> hybrid,</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>                        <span class="at">type=</span> <span class="st">'response'</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>                        )</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cld</span>(medias_milho)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>hybrid = 30F53 HX:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     25.0 8.13 1022     9.04     41.0  1    
+ pin      25.3 8.13 1022     9.32     41.2  1    
+
+hybrid = 30F53 YH:
+ method emmean   SE   df lower.CL upper.CL .group
+ pin      24.6 8.13 1022     8.64     40.6  1    
+ silk     26.2 8.13 1022    10.29     42.2  1    
+
+hybrid = 30K64:
+ method emmean   SE   df lower.CL upper.CL .group
+ pin      20.6 8.13 1022     4.59     36.5  1    
+ silk     21.5 8.13 1022     5.54     37.5  1    
+
+hybrid = 30S31H:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     26.5 8.13 1022    10.54     42.5  1    
+ pin      38.1 8.13 1022    22.14     54.1   2   
+
+hybrid = 30S31YH:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     26.6 8.13 1022    10.69     42.6  1    
+ pin      32.5 8.13 1022    16.54     48.5  1    
+
+hybrid = BG7049H:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     19.2 8.13 1022     3.22     35.1  1    
+ pin      19.4 8.13 1022     3.49     35.4  1    
+
+Results are averaged over the levels of: block 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+significance level used: alpha = 0.05 
+NOTE: If two or more means share the same grouping symbol,
+      then we cannot show them to be different.
+      But we also did not show them to be the same. </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cld</span>(medias_milho2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>hybrid = 30F53 HX:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     25.0 8.13 1022     9.04     41.0  1    
+ pin      25.3 8.13 1022     9.32     41.2  1    
+
+hybrid = 30F53 YH:
+ method emmean   SE   df lower.CL upper.CL .group
+ pin      24.6 8.13 1022     8.64     40.6  1    
+ silk     26.2 8.13 1022    10.29     42.2  1    
+
+hybrid = 30K64:
+ method emmean   SE   df lower.CL upper.CL .group
+ pin      20.6 8.13 1022     4.59     36.5  1    
+ silk     21.5 8.13 1022     5.54     37.5  1    
+
+hybrid = 30S31H:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     26.5 8.13 1022    10.54     42.5  1    
+ pin      38.1 8.13 1022    22.14     54.1   2   
+
+hybrid = 30S31YH:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     26.6 8.13 1022    10.69     42.6  1    
+ pin      32.5 8.13 1022    16.54     48.5  1    
+
+hybrid = BG7049H:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     19.2 8.13 1022     3.22     35.1  1    
+ pin      19.4 8.13 1022     3.49     35.4  1    
+
+Results are averaged over the levels of: block 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+significance level used: alpha = 0.05 
+NOTE: If two or more means share the same grouping symbol,
+      then we cannot show them to be different.
+      But we also did not show them to be the same. </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>mix3 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(yield <span class="sc">~</span> hybrid <span class="sc">*</span>method <span class="sc">+</span> block <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>block<span class="sc">/</span>hybrid), <span class="at">data =</span> milho)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>(mix3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML ['lmerMod']
+Formula: yield ~ hybrid * method + block + (1 | block/hybrid)
+   Data: milho
+REML criterion at convergence: 577.4931
+Random effects:
+ Groups       Name        Std.Dev.
+ hybrid:block (Intercept) 1365.0  
+ block        (Intercept)  666.3  
+ Residual                  640.0  
+Number of obs: 48, groups:  hybrid:block, 24; block, 4
+Fixed Effects:
+              (Intercept)             hybrid30F53 YH  
+                  11404.6                    -1800.0  
+              hybrid30K64               hybrid30S31H  
+                    467.5                    -3089.5  
+            hybrid30S31YH              hybridBG7049H  
+                  -3371.5                      762.5  
+               methodsilk                     block2  
+                  -1220.0                    -1251.2  
+                   block3                     block4  
+                   -181.8                      644.4  
+hybrid30F53 YH:methodsilk     hybrid30K64:methodsilk  
+                   1023.5                      -94.0  
+  hybrid30S31H:methodsilk   hybrid30S31YH:methodsilk  
+                   2287.0                     1660.8  
+ hybridBG7049H:methodsilk  
+                   2083.3  
+optimizer (nloptwrap) convergence code: 0 (OK) ; 0 optimizer warnings; 2 lme4 warnings </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_heteroscedasticity</span>(mix3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Warning: Heteroscedasticity (non-constant error variance) detected (p &lt; .001).</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(mix3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>OK: residuals appear as normally distributed (p = 0.211).</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DHARMa)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">simulateResiduals</span>(mix2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(mix2))</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(<span class="fu">residuals</span>(mix2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">residuals</span>(mix2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-10-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>medias_milho <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(mix2,</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>                        <span class="sc">~</span>hybrid <span class="sc">|</span> method,</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">type=</span> <span class="st">'response'</span>)</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>medias_milho <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(mix2,</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>                        <span class="sc">~</span>method <span class="sc">|</span> hybrid,</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">type=</span> <span class="st">'response'</span>)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cld</span>(medias_milho)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>hybrid = 30F53 HX:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     25.0 8.13 1022     9.04     41.0  1    
+ pin      25.3 8.13 1022     9.32     41.2  1    
+
+hybrid = 30F53 YH:
+ method emmean   SE   df lower.CL upper.CL .group
+ pin      24.6 8.13 1022     8.64     40.6  1    
+ silk     26.2 8.13 1022    10.29     42.2  1    
+
+hybrid = 30K64:
+ method emmean   SE   df lower.CL upper.CL .group
+ pin      20.6 8.13 1022     4.59     36.5  1    
+ silk     21.5 8.13 1022     5.54     37.5  1    
+
+hybrid = 30S31H:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     26.5 8.13 1022    10.54     42.5  1    
+ pin      38.1 8.13 1022    22.14     54.1   2   
+
+hybrid = 30S31YH:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     26.6 8.13 1022    10.69     42.6  1    
+ pin      32.5 8.13 1022    16.54     48.5  1    
+
+hybrid = BG7049H:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     19.2 8.13 1022     3.22     35.1  1    
+ pin      19.4 8.13 1022     3.49     35.4  1    
+
+Results are averaged over the levels of: block 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+significance level used: alpha = 0.05 
+NOTE: If two or more means share the same grouping symbol,
+      then we cannot show them to be different.
+      But we also did not show them to be the same. </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cld</span>(medias_milho2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>hybrid = 30F53 HX:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     25.0 8.13 1022     9.04     41.0  1    
+ pin      25.3 8.13 1022     9.32     41.2  1    
+
+hybrid = 30F53 YH:
+ method emmean   SE   df lower.CL upper.CL .group
+ pin      24.6 8.13 1022     8.64     40.6  1    
+ silk     26.2 8.13 1022    10.29     42.2  1    
+
+hybrid = 30K64:
+ method emmean   SE   df lower.CL upper.CL .group
+ pin      20.6 8.13 1022     4.59     36.5  1    
+ silk     21.5 8.13 1022     5.54     37.5  1    
+
+hybrid = 30S31H:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     26.5 8.13 1022    10.54     42.5  1    
+ pin      38.1 8.13 1022    22.14     54.1   2   
+
+hybrid = 30S31YH:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     26.6 8.13 1022    10.69     42.6  1    
+ pin      32.5 8.13 1022    16.54     48.5  1    
+
+hybrid = BG7049H:
+ method emmean   SE   df lower.CL upper.CL .group
+ silk     19.2 8.13 1022     3.22     35.1  1    
+ pin      19.4 8.13 1022     3.49     35.4  1    
+
+Results are averaged over the levels of: block 
+Degrees-of-freedom method: kenward-roger 
+Confidence level used: 0.95 
+significance level used: alpha = 0.05 
+NOTE: If two or more means share the same grouping symbol,
+      then we cannot show them to be different.
+      But we also did not show them to be the same. </code></pre>
+</div>
+</div>
+</section>
+<section id="importar-datos-de-arroz" class="level1">
+<h1>Importar datos de arroz</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>arroz<span class="ot">&lt;-</span><span class="fu">gsheet2tbl</span>(<span class="st">'https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit#gid=401662555'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Si se inocula una semilla de arroz de 0 a 48%.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>arroz <span class="sc">|&gt;</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(trat, nplants),<span class="fu">theme_classic</span>())<span class="sc">+</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>exp)<span class="sc">+</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data=</span><span class="st">'mean_cl_boot'</span>, <span class="at">size=</span><span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">'pink'</span>)<span class="sc">+</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">se=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>exp1 <span class="ot">&lt;-</span> arroz <span class="sc">|&gt;</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(exp<span class="sc">==</span><span class="dv">1</span>)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>exp1 <span class="sc">|&gt;</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(trat, nplants))<span class="sc">+</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">100</span>)<span class="sc">+</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_smooth</span>(<span class="at">se=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="modelo-de-regresión-linear-simple" class="level1">
+<h1>Modelo de regresión linear simple:</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(nplants <span class="sc">~</span> trat,</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">data=</span> exp1)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = nplants ~ trat, data = exp1)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-25.500  -6.532   1.758   8.573  27.226 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  52.5000     4.2044  12.487 1.84e-11 ***
+trat         -0.2419     0.1859  -1.301    0.207    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 15 on 22 degrees of freedom
+Multiple R-squared:  0.07148,   Adjusted R-squared:  0.02928 
+F-statistic: 1.694 on 1 and 22 DF,  p-value: 0.2066</code></pre>
+</div>
+</div>
+<p>La hipotesis nula dice que el coeficiente de regresión es igual a 0 (no tiene efecto). Para cada 1% de inóculo se reduce 0,24. Como el valor p fue mayor que 0,05, no rejecta H0, entonces no tiene efecto.</p>
+<section id="experimento-2" class="level3">
+<h3 class="anchored" data-anchor-id="experimento-2">Experimento 2</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>exp2 <span class="ot">&lt;-</span> arroz <span class="sc">|&gt;</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(exp<span class="sc">==</span><span class="dv">2</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>exp2 <span class="sc">|&gt;</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(trat, nplants))<span class="sc">+</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">100</span>)<span class="sc">+</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_smooth</span>(<span class="at">se=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(nplants <span class="sc">~</span> trat,</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">data=</span> exp2)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = nplants ~ trat, data = exp2)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-25.7816  -7.7150   0.5653   8.1929  19.2184 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  60.9857     3.6304  16.798 4.93e-14 ***
+trat         -0.7007     0.1605  -4.365 0.000247 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 12.95 on 22 degrees of freedom
+Multiple R-squared:  0.4641,    Adjusted R-squared:  0.4398 
+F-statistic: 19.05 on 1 and 22 DF,  p-value: 0.0002473</code></pre>
+</div>
+</div>
+</section>
+<section id="experimento-3" class="level3">
+<h3 class="anchored" data-anchor-id="experimento-3">Experimento 3</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>exp3 <span class="ot">&lt;-</span> arroz <span class="sc">|&gt;</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(exp<span class="sc">==</span><span class="dv">3</span>)</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>exp3 <span class="sc">|&gt;</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(trat, nplants))<span class="sc">+</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">100</span>)<span class="sc">+</span></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_smooth</span>(<span class="at">se=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>lm3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(nplants <span class="sc">~</span> trat,</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">data=</span> exp3)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = nplants ~ trat, data = exp3)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-26.5887  -3.9597   0.7177   5.5806  19.8952 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  95.7500     2.9529  32.425  &lt; 2e-16 ***
+trat         -0.7634     0.1306  -5.847 6.97e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 10.53 on 22 degrees of freedom
+Multiple R-squared:  0.6085,    Adjusted R-squared:  0.5907 
+F-statistic: 34.19 on 1 and 22 DF,  p-value: 6.968e-06</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">residuals</span>(lm3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-16-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">residuals</span>(lm1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-16-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Adjusted R-squared: 0,59 de y explica x en un 59%, el restante no se conoce.</p>
+</section>
+</section>
+<section id="glm-y-aic" class="level1">
+<h1>GLM y AIC</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>glm1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(nplants <span class="sc">~</span> trat, <span class="at">family =</span> <span class="st">'gaussian'</span>,</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> exp1)</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = nplants ~ trat, family = "gaussian", data = exp1)
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  52.5000     4.2044  12.487 1.84e-11 ***
+trat         -0.2419     0.1859  -1.301    0.207    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for gaussian family taken to be 224.9751)
+
+    Null deviance: 5330.5  on 23  degrees of freedom
+Residual deviance: 4949.5  on 22  degrees of freedom
+AIC: 202
+
+Number of Fisher Scoring iterations: 2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(glm1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 202.0045</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>glm2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(nplants <span class="sc">~</span> trat, <span class="at">family =</span> <span class="st">'gaussian'</span>,</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> exp2)</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = nplants ~ trat, family = "gaussian", data = exp2)
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  60.9857     3.6304  16.798 4.93e-14 ***
+trat         -0.7007     0.1605  -4.365 0.000247 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for gaussian family taken to be 167.7464)
+
+    Null deviance: 6886.6  on 23  degrees of freedom
+Residual deviance: 3690.4  on 22  degrees of freedom
+AIC: 194.96
+
+Number of Fisher Scoring iterations: 2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(glm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 194.9597</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>glm2b <span class="ot">&lt;-</span> <span class="fu">glm</span>(nplants <span class="sc">~</span> trat, <span class="at">family =</span> <span class="st">'poisson'</span>,</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> exp2)</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm2b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = nplants ~ trat, family = "poisson", data = exp2)
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  4.134189   0.037583 110.003  &lt; 2e-16 ***
+trat        -0.016270   0.002059  -7.901 2.76e-15 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 139.783  on 23  degrees of freedom
+Residual deviance:  69.578  on 22  degrees of freedom
+AIC: 210.24
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(glm2b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 210.2353</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>glm3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(nplants <span class="sc">~</span> trat, <span class="at">family =</span> <span class="st">'gaussian'</span>,</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> exp3)</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = nplants ~ trat, family = "gaussian", data = exp3)
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  95.7500     2.9529  32.425  &lt; 2e-16 ***
+trat         -0.7634     0.1306  -5.847 6.97e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for gaussian family taken to be 110.9787)
+
+    Null deviance: 6235.8  on 23  degrees of freedom
+Residual deviance: 2441.5  on 22  degrees of freedom
+AIC: 185.04
+
+Number of Fisher Scoring iterations: 2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(glm3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 185.0449</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>glm3b <span class="ot">&lt;-</span> <span class="fu">glm</span>(nplants <span class="sc">~</span> trat, <span class="at">family =</span> <span class="st">'poisson'</span>,</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> exp3)</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm3b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = nplants ~ trat, family = "poisson", data = exp3)
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  4.571590   0.029539 154.762  &lt; 2e-16 ***
+trat        -0.009965   0.001488  -6.697 2.13e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 77.906  on 23  degrees of freedom
+Residual deviance: 29.952  on 22  degrees of freedom
+AIC: 183.93
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(glm3b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 183.9324</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>glm3 <span class="ot">&lt;-</span> <span class="fu">glmer</span>(nplants <span class="sc">~</span> trat<span class="sc">+</span> (trat<span class="sc">|</span> exp), <span class="at">family =</span> <span class="st">'gaussian'</span>,</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> arroz)</span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML ['lmerMod']
+Formula: nplants ~ trat + (trat | exp)
+   Data: arroz
+
+REML criterion at convergence: 580.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.0988 -0.6091  0.1722  0.6360  1.9963 
+
+Random effects:
+ Groups   Name        Variance  Std.Dev. Corr 
+ exp      (Intercept) 510.68405 22.5983       
+          trat          0.05516  0.2349  -0.82
+ Residual             167.91303 12.9581       
+Number of obs: 72, groups:  exp, 3
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept)  69.7452    13.2146   5.278
+trat         -0.5687     0.1643  -3.462
+
+Correlation of Fixed Effects:
+     (Intr)
+trat -0.731
+optimizer (nloptwrap) convergence code: 0 (OK)
+Model failed to converge with max|grad| = 0.00274249 (tol = 0.002, component 1)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(glm3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 592.8402</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>glm3b <span class="ot">&lt;-</span> <span class="fu">glmer</span>(nplants <span class="sc">~</span> trat<span class="sc">+</span> (trat<span class="sc">|</span> exp), <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> log),</span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> arroz)</span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(glm3b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: poisson  ( log )
+Formula: nplants ~ trat + (trat | exp)
+   Data: arroz
+
+     AIC      BIC   logLik deviance df.resid 
+   660.7    672.1   -325.4    650.7       67 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.6247 -0.8083  0.1042  0.9601  3.6511 
+
+Random effects:
+ Groups Name        Variance  Std.Dev. Corr 
+ exp    (Intercept) 6.425e-02 0.253478      
+        trat        1.602e-05 0.004003 -0.17
+Number of obs: 72, groups:  exp, 3
+
+Fixed effects:
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  4.223397   0.147793  28.577  &lt; 2e-16 ***
+trat        -0.010434   0.002538  -4.111 3.93e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+     (Intr)
+trat -0.192</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(glm3b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 660.7282</code></pre>
+</div>
+</div>
+</section>
+<section id="moho-blanco-en-soya" class="level1">
+<h1>Moho blanco en soya</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(r4pde)</span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>wm<span class="ot">&lt;-</span> WhiteMoldSoybean</span>
+<span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a>wm <span class="sc">|&gt;</span></span>
+<span id="cb84-5"><a href="#cb84-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(inc,yld))<span class="sc">+</span></span>
+<span id="cb84-6"><a href="#cb84-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb84-7"><a href="#cb84-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>study)<span class="sc">+</span></span>
+<span id="cb84-8"><a href="#cb84-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>mofo1<span class="ot">&lt;-</span> <span class="fu">lm</span>(yld <span class="sc">~</span> inc,</span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">data=</span> wm)</span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mofo1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = yld ~ inc, data = wm)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1657.85  -594.50   -91.32   531.76  1693.15 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 3299.619     56.451  58.451  &lt; 2e-16 ***
+inc           -9.261      2.108  -4.393 1.45e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 745.8 on 380 degrees of freedom
+Multiple R-squared:  0.04833,   Adjusted R-squared:  0.04582 
+F-statistic:  19.3 on 1 and 380 DF,  p-value: 1.452e-05</code></pre>
+</div>
+</div>
+<p>#Se tienen 3299 kg/h de produccion al haber incidencia cero</p>
+<p>#Se disminuye por 9.2 por cada porcentual aumentado.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>wm <span class="sc">|&gt;</span> </span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(inc, yld,</span>
+<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>             <span class="co">#group = factor(study)</span></span>
+<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="fu">factor</span>(study)</span>
+<span id="cb87-5"><a href="#cb87-5" aria-hidden="true" tabindex="-1"></a>             ))<span class="sc">+</span></span>
+<span id="cb87-6"><a href="#cb87-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb87-7"><a href="#cb87-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#facet_wrap(~ study)+</span></span>
+<span id="cb87-8"><a href="#cb87-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#theme_minimal()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>mofo2<span class="ot">&lt;-</span> wm<span class="sc">%&gt;%</span></span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(study) <span class="sc">|&gt;</span></span>
+<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="fu">tidy</span>(<span class="fu">lm</span>(.<span class="sc">$</span>yld <span class="sc">~</span> .<span class="sc">$</span>inc),<span class="at">conf.int=</span><span class="cn">TRUE</span>))</span>
+<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a>mofo2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 70 × 8
+# Groups:   study [35]
+   study term        estimate std.error statistic  p.value conf.low conf.high
+   &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+ 1     1 (Intercept)  3329.       86.8      38.3  4.60e-13   3138.    3520.  
+ 2     1 .$inc         -14.2       2.08     -6.85 2.78e- 5    -18.8     -9.64
+ 3     2 (Intercept)  2682.       48.6      55.2  8.55e-15   2575.    2789.  
+ 4     2 .$inc          -6.93      1.49     -4.66 6.89e- 4    -10.2     -3.66
+ 5     3 (Intercept)  4017.       61.6      65.2  1.37e-15   3882.    4153.  
+ 6     3 .$inc         -18.6       1.71    -10.9  3.11e- 7    -22.4    -14.9 
+ 7     4 (Intercept)  2814.      151.       18.6  1.15e- 9   2481.    3147.  
+ 8     4 .$inc         -43.5      16.8      -2.58 2.56e- 2    -80.5     -6.38
+ 9     5 (Intercept)  3317.      234.       14.2  2.07e- 8   2802.    3832.  
+10     5 .$inc         -21.2       5.69     -3.72 3.36e- 3    -33.7     -8.67
+# ℹ 60 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> mofo2 <span class="sc">|&gt;</span> <span class="fu">filter</span> (term <span class="sc">==</span> <span class="st">'.$inc'</span>)</span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span> (df<span class="sc">$</span>estimate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -19.52932</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>fit_all <span class="ot">&lt;-</span> wm<span class="sc">%&gt;%</span></span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(study) <span class="sc">|&gt;</span> </span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(broom<span class="sc">::</span><span class="fu">tidy</span>(<span class="fu">lm</span>(.<span class="sc">$</span>yld <span class="sc">~</span> .<span class="sc">$</span>inc), <span class="at">conf.int=</span><span class="cn">TRUE</span>))</span>
+<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>fit_all</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 70 × 8
+# Groups:   study [35]
+   study term        estimate std.error statistic  p.value conf.low conf.high
+   &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+ 1     1 (Intercept)  3329.       86.8      38.3  4.60e-13   3138.    3520.  
+ 2     1 .$inc         -14.2       2.08     -6.85 2.78e- 5    -18.8     -9.64
+ 3     2 (Intercept)  2682.       48.6      55.2  8.55e-15   2575.    2789.  
+ 4     2 .$inc          -6.93      1.49     -4.66 6.89e- 4    -10.2     -3.66
+ 5     3 (Intercept)  4017.       61.6      65.2  1.37e-15   3882.    4153.  
+ 6     3 .$inc         -18.6       1.71    -10.9  3.11e- 7    -22.4    -14.9 
+ 7     4 (Intercept)  2814.      151.       18.6  1.15e- 9   2481.    3147.  
+ 8     4 .$inc         -43.5      16.8      -2.58 2.56e- 2    -80.5     -6.38
+ 9     5 (Intercept)  3317.      234.       14.2  2.07e- 8   2802.    3832.  
+10     5 .$inc         -21.2       5.69     -3.72 3.36e- 3    -33.7     -8.67
+# ℹ 60 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> fit_all <span class="sc">|&gt;</span> </span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"(Intercept)"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> estimate))<span class="sc">+</span></span>
+<span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">fill =</span> <span class="st">"gray50"</span>)<span class="sc">+</span></span>
+<span id="cb95-5"><a href="#cb95-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_r4pde</span>()<span class="sc">+</span></span>
+<span id="cb95-6"><a href="#cb95-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Intercept"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span>
+<span id="cb95-7"><a href="#cb95-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-8"><a href="#cb95-8" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> fit_all <span class="sc">|&gt;</span> </span>
+<span id="cb95-9"><a href="#cb95-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">".$inc"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb95-10"><a href="#cb95-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> estimate))<span class="sc">+</span></span>
+<span id="cb95-11"><a href="#cb95-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">fill =</span> <span class="st">"gray50"</span>)<span class="sc">+</span></span>
+<span id="cb95-12"><a href="#cb95-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_r4pde</span>()<span class="sc">+</span></span>
+<span id="cb95-13"><a href="#cb95-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Slope"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span>
+<span id="cb95-14"><a href="#cb95-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-15"><a href="#cb95-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-16"><a href="#cb95-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb95-17"><a href="#cb95-17" aria-hidden="true" tabindex="-1"></a>p3 <span class="sc">|</span> p4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>mofo3 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(yld<span class="sc">~</span>inc <span class="sc">+</span> (inc<span class="sc">|</span>study), <span class="at">data =</span> wm,</span>
+<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">REML=</span> F)</span>
+<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mofo3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by maximum likelihood  ['lmerMod']
+Formula: yld ~ inc + (inc | study)
+   Data: wm
+
+     AIC      BIC   logLik deviance df.resid 
+  5319.4   5343.1  -2653.7   5307.4      376 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.7078 -0.5991 -0.0295  0.5077  3.2364 
+
+Random effects:
+ Groups   Name        Variance  Std.Dev. Corr 
+ study    (Intercept) 557573.08 746.708       
+          inc             36.85   6.071  -0.29
+ Residual              37228.73 192.947       
+Number of obs: 382, groups:  study, 35
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept) 3455.432    128.063   26.98
+inc          -17.236      1.451  -11.88
+
+Correlation of Fixed Effects:
+    (Intr)
+inc -0.300
+optimizer (nloptwrap) convergence code: 0 (OK)
+Model failed to converge with max|grad| = 0.416806 (tol = 0.002, component 1)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Anova</span>(mofo3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Deviance Table (Type II Wald chisquare tests)
+
+Response: yld
+     Chisq Df Pr(&gt;Chisq)    
+inc 141.09  1  &lt; 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(mofo3, <span class="at">method=</span> <span class="st">'Wald'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 2.5 %     97.5 %
+.sig01              NA         NA
+.sig02              NA         NA
+.sig03              NA         NA
+.sigma              NA         NA
+(Intercept) 3204.43403 3706.43096
+inc          -20.08046  -14.39219</code></pre>
+</div>
+</div>
+<p>Aqui se ve que el intercepto es de 3255 kg/h al haber 0 incidencia y cada porcentaje de incidencia aumentado, se pieden 17,23 kg/ha</p>
+</section>
+<section id="correlacion-linear" class="level1">
+<h1>Correlacion linear</h1>
+<p>Podemos escoger modelos que pasan más próximos a todos los puntos, por lo que algunas regresiones estadísticas tienen diferentes modelos que pueden ser escogidos (PE regresiones no lineares).</p>
+<p>Crecimiento micelial / dosis cuál es la dosis que inhibe el 50% del crecimiento micelial, podemos hacer una comparación entre diferentes isolados fúngicos. Depende de la respuesta que nosotros modelamos.</p>
+<p>Correlaciones: Es una asociacion entre 2 variables, también puede ser una disociación.</p>
+<p>El incremento de una variable A y B, esta asociación en caso de que ambos datos aumenten, su relación es positiva.</p>
+<p>Entre más disaciociada(dispersa), esta se vuelve más cercana.</p>
+<p>Correlación de pearson: 0 -1</p>
+<p>Cuanto más disperson, menor el número de correlación.</p>
+<p>Una relación de causa efecto (uno aumenta y otro disminuye), como por ejemplo cuando una enfermedad aumenta y la productividad disminuye, puede tener una correlación negativa.</p>
+<p>La regresión también se puede hacer también entre dos variables.</p>
+<p>R^2 = Al hacer la raíz de este resultado, siempre da menor a r. R2 es el coeficiente de determinación. Cuánto explica x a y.</p>
+<p>r Es la fuerza de asociación entre x e y</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">gsheet2tbl</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit#gid=373270992"</span>)</span>
+<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> img <span class="sc">|&gt;</span> </span>
+<span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Assess, ImageJ))<span class="sc">+</span></span>
+<span id="cb102-5"><a href="#cb102-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb102-6"><a href="#cb102-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span>
+<span id="cb102-7"><a href="#cb102-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-8"><a href="#cb102-8" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> img <span class="sc">|&gt;</span> </span>
+<span id="cb102-9"><a href="#cb102-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Assess, LeafDoctor))<span class="sc">+</span></span>
+<span id="cb102-10"><a href="#cb102-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb102-11"><a href="#cb102-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span>
+<span id="cb102-12"><a href="#cb102-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-13"><a href="#cb102-13" aria-hidden="true" tabindex="-1"></a>img <span class="sc">|&gt;</span> </span>
+<span id="cb102-14"><a href="#cb102-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">names_to =</span> <span class="st">"method"</span>,</span>
+<span id="cb102-15"><a href="#cb102-15" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"value"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb102-16"><a href="#cb102-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(method, value))<span class="sc">+</span></span>
+<span id="cb102-17"><a href="#cb102-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>img2 <span class="ot">&lt;-</span> img <span class="sc">|&gt;</span> </span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Assess, LeafDoctor, ImageJ)</span>
+<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(AgroR)</span>
+<span id="cb104-5"><a href="#cb104-5" aria-hidden="true" tabindex="-1"></a><span class="fu">corgraph</span>(img2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Var1       Var2       cor            p
+2 LeafDoctor     Assess 0.9666367 5.972544e-42
+3     ImageJ     Assess 0.9776918 8.143613e-48
+6     ImageJ LeafDoctor 0.9797478 3.144091e-49</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(img<span class="sc">$</span>Assess, img<span class="sc">$</span>LeafDoctor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  img$Assess and img$LeafDoctor
+t = 31.119, df = 68, p-value &lt; 2.2e-16
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.9466882 0.9792005
+sample estimates:
+      cor 
+0.9666367 </code></pre>
+</div>
+</div>
+<p>En este caso, la conclusión el assess es el programa estándar para que de una relación buena, si podemos sustituir el assess con otros datos, igualmente podemos recibir nuevas relaciones causa efecto por medio de respuestas/métodos diferentes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(img<span class="sc">$</span>Assess, img<span class="sc">$</span>LeafDoctor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9666367</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a>cor_img2 <span class="ot">&lt;-</span> <span class="fu">cor</span>(img2)</span>
+<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(cor_img2, <span class="at">method =</span> <span class="st">'number'</span>, <span class="at">type =</span> <span class="st">"lower"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Nos da colores de los numeros dentro de la relacion y la matriz.</p>
+<p>Ahora trabajemos con otro conjunto de datos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>cor_img2 <span class="ot">&lt;-</span> <span class="fu">cor</span>(img2)</span>
+<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(cor_img2, <span class="at">method =</span> <span class="st">'number'</span>, <span class="at">type =</span> <span class="st">"upper"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>campo <span class="ot">&lt;-</span> <span class="fu">gsheet2tbl</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit#gid=866852711"</span>)</span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a>campo2 <span class="ot">&lt;-</span> campo <span class="sc">|&gt;</span> </span>
+<span id="cb112-4"><a href="#cb112-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(DFC, FER, PROD)</span>
+<span id="cb112-5"><a href="#cb112-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-6"><a href="#cb112-6" aria-hidden="true" tabindex="-1"></a><span class="fu">corgraph</span>(campo2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Var1 Var2        cor            p
+2  FER  DFC  0.9316978 9.864101e-15
+3 PROD  DFC -0.6928161 1.110652e-05
+6 PROD  FER -0.6258321 1.277444e-04</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Un problema que tenemos en campo, es que tenemos 2 enfermedades y queremos saber cual esta mas relacionada con la produccion.</p>
+<p>En esta podemos ver que el DFC influye mas y donde hay DFC hay ferrugem pues estan correlacionadas.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(campo<span class="sc">$</span>PROD, campo<span class="sc">$</span>DFC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  campo$PROD and campo$DFC
+t = -5.2623, df = 30, p-value = 1.111e-05
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.8388581 -0.4537361
+sample estimates:
+       cor 
+-0.6928161 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(campo<span class="sc">$</span>PROD, campo<span class="sc">$</span>FER)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  campo$PROD and campo$FER
+t = -4.3949, df = 30, p-value = 0.0001277
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.7999565 -0.3544981
+sample estimates:
+       cor 
+-0.6258321 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>campo <span class="sc">|&gt;</span></span>
+<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(DFC, PROD))<span class="sc">+</span></span>
+<span id="cb118-3"><a href="#cb118-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="modelo-cuadrático-de-regresión-linear." class="level1">
+<h1>Modelo cuadrático de regresión linear.</h1>
+<p>Vamos a comparar los métodos linear y con el cuadrático.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>exp2 <span class="ot">&lt;-</span> arroz <span class="sc">|&gt;</span> </span>
+<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(exp <span class="sc">==</span> <span class="dv">2</span>)</span>
+<span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-4"><a href="#cb119-4" aria-hidden="true" tabindex="-1"></a>exp2 <span class="sc">|&gt;</span> </span>
+<span id="cb119-5"><a href="#cb119-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(trat, nplants))<span class="sc">+</span></span>
+<span id="cb119-6"><a href="#cb119-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb119-7"><a href="#cb119-7" aria-hidden="true" tabindex="-1"></a> <span class="co"># stat_summary(fun.data = "mean_cl_boot", size = 0.5, color = "black",</span></span>
+<span id="cb119-8"><a href="#cb119-8" aria-hidden="true" tabindex="-1"></a> <span class="co">#              alpha = 0.5)+</span></span>
+<span id="cb119-9"><a href="#cb119-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">100</span>)<span class="sc">+</span></span>
+<span id="cb119-10"><a href="#cb119-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb119-11"><a href="#cb119-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb119-12"><a href="#cb119-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span><span class="fu">poly</span>(x,<span class="dv">2</span>),</span>
+<span id="cb119-13"><a href="#cb119-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">color =</span> <span class="st">"black"</span>)<span class="sc">+</span></span>
+<span id="cb119-14"><a href="#cb119-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb119-15"><a href="#cb119-15" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="primer-orden-modelo-linear" class="level2">
+<h2 class="anchored" data-anchor-id="primer-orden-modelo-linear">Primer orden (Modelo linear)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a>lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(nplants <span class="sc">~</span>trat,</span>
+<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> exp2)</span>
+<span id="cb120-3"><a href="#cb120-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = nplants ~ trat, data = exp2)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-25.7816  -7.7150   0.5653   8.1929  19.2184 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  60.9857     3.6304  16.798 4.93e-14 ***
+trat         -0.7007     0.1605  -4.365 0.000247 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 12.95 on 22 degrees of freedom
+Multiple R-squared:  0.4641,    Adjusted R-squared:  0.4398 
+F-statistic: 19.05 on 1 and 22 DF,  p-value: 0.0002473</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">residuals</span>(lm2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(lm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 194.9597</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a>exp2<span class="sc">$</span>trat2 <span class="ot">&lt;-</span> exp2<span class="sc">$</span>trat<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb125-3"><a href="#cb125-3" aria-hidden="true" tabindex="-1"></a>lm3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(nplants <span class="sc">~</span>trat <span class="sc">+</span> trat2,</span>
+<span id="cb125-4"><a href="#cb125-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> exp2)</span>
+<span id="cb125-5"><a href="#cb125-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = nplants ~ trat + trat2, data = exp2)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-25.439  -6.019   1.789   8.016  19.561 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 66.30156    4.42097  14.997 1.08e-12 ***
+trat        -1.77720    0.58467  -3.040  0.00623 ** 
+trat2        0.02223    0.01166   1.906  0.07036 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 12.24 on 21 degrees of freedom
+Multiple R-squared:  0.5432,    Adjusted R-squared:  0.4997 
+F-statistic: 12.49 on 2 and 21 DF,  p-value: 0.0002675</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">residuals</span>(lm3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(lm3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 193.1284</code></pre>
+</div>
+</div>
+<p>Conclusion: EL r2 se explica mejor con la regresion cuadratica que con la linear.</p>
+<p>Segun AIC tambien el modelo cuadratico explica mejor la variacion (diferencia de 43% a 49%), entre menor es mejor,</p>
+<p>Y= 66,3 - 1,77 x TRAT + 0,02 x TRAT^2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(exp2, <span class="fu">polynomial</span>(trat, nplants, <span class="at">grau =</span> <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+----------------------------------------------------
+Regression Models
+----------------------------------------------------
+                Estimate  Std. Error   t value     Pr(&gt;|t|)
+(Intercept) 70.265143802 5.300440019 13.256474 2.295186e-11
+trat        -3.609380523 1.514625525 -2.383018 2.720299e-02
+I(trat^2)    0.140522077 0.091192577  1.540938 1.390058e-01
+I(trat^3)   -0.001712445 0.001309648 -1.307561 2.058546e-01
+
+----------------------------------------------------
+Deviations from regression
+----------------------------------------------------
+          Df       SSq       MSQ          F      p-value
+Linear     1 3196.2031 3196.2031 21.8232929 0.0001899378
+Quadratic  1  544.5029  544.5029  3.7178008 0.0697619482
+Cubic      1  247.7520  247.7520  1.6916208 0.2097934169
+Deviation  2  261.9170  130.9585  0.8941691 0.4263523326
+Residual  18 2636.2500  146.4583                        </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Se puede ver los intervalos de confianza para cada punto, ajustando segun lo que calculo abajo, para dar un R^2.</p>
+<p>grau 1 = linear.</p>
+<p>Grau 2= cuadratico, modelino curvilinear.</p>
+<p>grau 3 = cubica, no tiene una explicacion biologica por lo que casi no se utiliza para esta aumentar entre dos tractos.</p>
+</section>
+</section>
+<section id="datos-de-sensibilidad-de-fungicidas." class="level1">
+<h1>Datos de sensibilidad de fungicidas.</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>pyra <span class="ot">&lt;-</span> <span class="fu">gsheet2tbl</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit#gid=465348652"</span>)</span>
+<span id="cb133-2"><a href="#cb133-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb133-3"><a href="#cb133-3" aria-hidden="true" tabindex="-1"></a>pyra2 <span class="ot">&lt;-</span> pyra <span class="sc">|&gt;</span></span>
+<span id="cb133-4"><a href="#cb133-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(code, state, dose) <span class="sc">|&gt;</span> </span>
+<span id="cb133-5"><a href="#cb133-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_germination =</span> <span class="fu">mean</span>(germination))</span>
+<span id="cb133-6"><a href="#cb133-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb133-7"><a href="#cb133-7" aria-hidden="true" tabindex="-1"></a>pyra2<span class="sc">|&gt;</span> </span>
+<span id="cb133-8"><a href="#cb133-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(dose, mean_germination))<span class="sc">+</span></span>
+<span id="cb133-9"><a href="#cb133-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb133-10"><a href="#cb133-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>code)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="filtrar-isolado-186" class="level2">
+<h2 class="anchored" data-anchor-id="filtrar-isolado-186">Filtrar Isolado 186</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(drc)</span>
+<span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-3"><a href="#cb134-3" aria-hidden="true" tabindex="-1"></a>isolado186 <span class="ot">&lt;-</span> pyra2 <span class="sc">|&gt;</span> </span>
+<span id="cb134-4"><a href="#cb134-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">filter</span>(code <span class="sc">==</span> <span class="st">"186"</span>)</span>
+<span id="cb134-5"><a href="#cb134-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-6"><a href="#cb134-6" aria-hidden="true" tabindex="-1"></a>drc1 <span class="ot">&lt;-</span> <span class="fu">drm</span>(mean_germination <span class="sc">~</span> dose, <span class="at">data =</span> isolado186,</span>
+<span id="cb134-7"><a href="#cb134-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">fct =</span> <span class="fu">W1.3</span>())</span>
+<span id="cb134-8"><a href="#cb134-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-9"><a href="#cb134-9" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(drc1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20.97861</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(drc1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="aula9_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Si la estimativa fuera mas alta, es mas sensible al fungicida.</p>
+<p>Si la estimativa (Estimate) fuera mas baja, es menos sensible al fungicida.</p>
+<p>Entre menor es el AIC, mejor.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Copyright 2024, Mary Paz Romero Benavides</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

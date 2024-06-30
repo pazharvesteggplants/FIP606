@@ -1,0 +1,5 @@
+"0","soja<-gsheet2tbl('https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit#gid=866852711')"
+"0",""
+"0","soja<- soja |>"
+"0","  mutate(TRAT=as.factor(TRAT),"
+"0","         BLOCO=as.factor(BLOCO))"

@@ -1,0 +1,3 @@
+"0","library (MASS)"
+"0",""
+"0","b<-boxcox(lm(soja$FER~1))"

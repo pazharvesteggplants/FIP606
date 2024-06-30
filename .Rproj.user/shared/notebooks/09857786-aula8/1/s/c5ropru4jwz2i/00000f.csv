@@ -1,0 +1,191 @@
+"0","library(epifitter)"
+"0","curve2 <- riego |>"
+"0","  group_by(Irrigation, rep)|>"
+"0","  summarise(aacpd = AUDPC(day, severity))"
+"1","[38;5;252m`summarise()` has grouped output by 'Irrigation'. You can override
+using the `.groups` argument.[39m
+"
+"0","curve"
+"1","function (expr, from = NULL, to = NULL, n = 101, add = FALSE, 
+"
+"1","    type = ""l"", xname = ""x"", xlab = xname, ylab = NULL, log = NULL, 
+"
+"1","    xlim = NULL, ...) 
+"
+"1","{
+"
+"1","    sexpr <- substitute(expr)
+"
+"1","    if (is.name(sexpr)) {
+"
+"1","        expr <- call(as.character(sexpr), as.name(xname))
+"
+"1","    }
+"
+"1","    else {
+"
+"1","        if (!((is.call(sexpr) || is.expression(sexpr)) && xname %in% 
+"
+"1","            all.vars(sexpr))) 
+"
+"1","            stop(gettextf(""'expr' must be a function, or a call or an expression containing '%s'"", 
+"
+"1","                xname), domain = NA)
+"
+"1","        expr <- sexpr
+"
+"1","    }
+"
+"1","    if (dev.cur() == 1L && !isFALSE(add)) {
+"
+"1","        warning(""'add' will be ignored as there is no existing plot"")
+"
+"1","        add <- FALSE
+"
+"1","    }
+"
+"1","    addF <- isFALSE(add)
+"
+"1","    if (is.null(ylab)) 
+"
+"1","        ylab <- deparse(expr)
+"
+"1","    if (is.null(from) || is.null(to)) {
+"
+"1","        xl <- xlim %||% if (!addF) {
+"
+"1","            pu <- par(""usr"")[1L:2L]
+"
+"1","            if (par(""xaxs"") == ""r"") 
+"
+"1","                pu <- extendrange(pu, f = -1/27)
+"
+"1","            if (par(""xlog"")) 
+"
+"1","                10^pu
+"
+"1","            else pu
+"
+"1","        }
+"
+"1","        else c(0, 1)
+"
+"1","        if (is.null(from)) 
+"
+"1","            from <- xl[1L]
+"
+"1","        if (is.null(to)) 
+"
+"1","            to <- xl[2L]
+"
+"1","    }
+"
+"1","    lg <- if (length(log)) 
+"
+"1","        log
+"
+"1","    else if (!addF && par(""xlog"")) 
+"
+"1","        ""x""
+"
+"1","    else """"
+"
+"1","    if (length(lg) == 0) 
+"
+"1","        lg <- """"
+"
+"1","    if (grepl(""x"", lg, fixed = TRUE)) {
+"
+"1","        if (from <= 0 || to <= 0) 
+"
+"1","            stop(""'from' and 'to' must be > 0 with log=\""x\"""")
+"
+"1","        x <- exp(seq.int(log(from), log(to), length.out = n))
+"
+"1","    }
+"
+"1","    else x <- seq.int(from, to, length.out = n)
+"
+"1","    ll <- list(x = x)
+"
+"1","    names(ll) <- xname
+"
+"1","    y <- eval(expr, envir = ll, enclos = parent.frame())
+"
+"1","    if (length(y) != length(x)) 
+"
+"1","        stop(""'expr' did not evaluate to an object of length 'n'"")
+"
+"1","    if (isTRUE(add)) 
+"
+"1","        lines(x = x, y = y, type = type, ...)
+"
+"1","    else plot(x = x, y = y, type = type, xlab = xlab, ylab = ylab, 
+"
+"1","        xlim = xlim, log = lg, ...)
+"
+"1","    invisible(list(x = x, y = y))
+"
+"1","}
+"
+"1","<bytecode: 0x0000023aa1680f58>
+"
+"1","<environment: namespace:graphics>
+"
+"0","m_curve<- lm(aacpd ~ Irrigation + factor(rep),"
+"0","             data = curve2)"
+"0","anova(m_curve)"
+"1","Analysis of Variance Table
+"
+"1","
+"
+"1","Response: aacpd"
+"1","
+"
+"1","           "
+"1"," Df"
+"1","  Sum Sq"
+"1","  Mean Sq"
+"1"," F value"
+"1","  Pr(>F)"
+"1","  "
+"1","
+Irrigation "
+"1","  1"
+"1"," 0.23602"
+"1"," 0.236017"
+"1","  10.605"
+"1"," 0.08275"
+"1"," ."
+"1","
+factor(rep)"
+"1","  2"
+"1"," 0.61291"
+"1"," 0.306454"
+"1","  13.771"
+"1"," 0.06770"
+"1"," ."
+"1","
+Residuals  "
+"1","  2"
+"1"," 0.04451"
+"1"," 0.022254"
+"1","        "
+"1","        "
+"1","  "
+"1","
+"
+"1","---
+Signif. codes:  "
+"1",""
+"1","0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1"
+"1","
+"
+"0","library(agricolae)"
+"0","cv.model(m_curve)"
+"1","[1]"
+"1"," 1.097572"
+"1","
+"
+"0","#cv.model nos habla del coeficiente de diferencia entre las curvas, que es 1.09% lo vual es bastante bajo"
+"0",""
