@@ -1,0 +1,186 @@
+---
+title: "aula3"
+format: html
+editor: visual
+warning: false
+message: false
+---
+
+# #Visualizacion
+
+#Vamos a utilizar la biblioteca ggplot2 para visualizar los conjuntos de datos de la base de datos de roya en unas fincas y jardines con cafe en Etiopia.
+
+#### #Histograma
+
+#A continuacion, tenemos un histograma de la incidencia segun la region
+
+```{r}
+
+library(tidyverse)
+cr<-read_csv("https://raw.githubusercontent.com/emdelponte/paper-coffee-rust-Ethiopia/master/data/survey_clean.csv")
+
+glimpse(cr)
+
+cr|>
+  ggplot (aes(x = inc))+
+  geom_histogram()+
+  facet_wrap(~region)
+
+#Histograma tiene una distribucion de las variables segun la respuestas.
+#x es la incidencia en este caso
+# Multimodal significa tener varios picos, es decir que este gráfico puede considerarse un histograma multimodal.
+```
+
+Este histograma demuestra la severidad según la región
+
+```{r}
+cr |>
+  ggplot (aes(x = sev2))+
+  geom_histogram()+
+  facet_wrap(~region)
+```
+
+#### Grafico de Puntos
+
+Este es un grafico de dispersion en el cual podremos ver visualmente la interaccion de la severidad con la incidencia.
+
+```{r}
+summary(cr$inc)
+#Summary hace un resúmen de los datos. el $ se utiliza para pedir un resúmen de la incidencia en específico, ignorando el resto de datos.
+cr |>
+  group_by(cultivar)|>
+  summarize(inc_mean = mean(inc),
+            sd_mean= sd(inc))
+cr |>
+  ggplot(aes(inc, sev2))+
+  geom_point()
+#la severidad nos sirve mucho, por lo que podemos hacer una prediccion con la incidencia, al ser el valor mas importante
+
+```
+
+# ##Boxplot
+
+#Los gráficos de boxplot pueden utilizarse para realizar visualizaciones rápidas de los datos.
+
+```{r}
+cr|>
+  ggplot (aes(farm,inc))+
+  geom_boxplot()+
+  facet_wrap(~region)
+```
+
+\
+#Aquí estamos aplicando la media, la mediana y la desviación estandar de la severidad.
+
+```{r}
+cr |>
+summarize (sev_med = median(sev2),
+           sev_mean =mean(sev2),
+           sev_sd = sd(sev2))
+```
+
+#Ahora, trabajaremos con una serie de histogramas que nos permitan ver las diferencias entre regiones y cultivares según la severidad.
+
+```{r}
+library(ggthemes)
+cr |>
+  ggplot(aes(x = sev2, fill = region))+
+  geom_histogram(color = "black")+
+  facet_grid(region ~ cultivar)+
+  scale_fill_manual(values=(c("red", "blue")))+
+  theme_minimal(base_size = 14)+
+  theme(legend.position = "bottom")+
+  #light es un tema que se coloca.
+  labs(y = "Frequency",
+       x = "Severity (%)")
+  ggsave("crl.png", bg= "white")
+
+```
+
+El grafico próximo es exactamente igual, solo que se ha cambiado el tema gráfico.
+
+```{r}
+library(ggthemes)
+cr |>
+  ggplot(aes(x = sev2, fill = region))+
+  geom_histogram(color = "white")+
+  facet_grid(region ~ cultivar, ncol(6))+
+  scale_fill_colorblind()+
+  theme_minimal(base_size = 14)+
+  theme(legend.position = "bottom")+
+  #light es un tema que se coloca.
+  labs(y = "Frequency",
+       x = "Severity (%)")
+  ggsave("crl2.png", bg= "white")
+```
+
+### #Creacion de subconjuntos
+
+#Se seleccionan conjuntos especificos.
+
+#En este caso se filtraron los datos para la region de Oromia, lo que deja 165 lineas en 4 variables, lo mismo con SNNPR.
+
+#Esto sucede gracias a las funciones `select` y `filter`, estos son de la biblioteca **dplyr**.
+
+```{r}
+#Filtrado region Oromia
+cr_oromia<- cr |>
+  select (farm, region, sev2, cultivar)|>
+  filter (region == "Oromia")
+#Filtrado region SNNPR
+cr_pr<- cr |>
+  select (farm, region, sev2, cultivar)|>
+  filter (region == "SNNPR")
+
+```
+
+##Visualizacion de los subconjuntos
+
+Se utilizaran graficos ggplot para cada subconjunto.
+
+```{r}
+p1 <-cr_oromia |>
+  ggplot(aes(cultivar, sev2,
+             fill=cultivar))+
+         geom_boxplot()+
+  scale_fill_brewer()+
+  labs(y= " ", title = "Oromia")+
+  coord_flip()
+p2<- cr_pr |>
+  ggplot(aes(cultivar, sev2,
+             fill= cultivar))+
+         geom_boxplot()+
+  scale_fill_brewer()+
+  labs(y= "Severity (%)", title = "SNNPR")+
+  coord_flip()
+p1
+p2
+#Queremos colocar ambos graficos uno al lado del otro, utilizaremos la biblioteca patchwork
+```
+
+#Aquí es importante saber que con la librería patchwork, podemos unir diferentes componentes gráficos en una sola imágen.
+
+```{r}
+library(patchwork)
+
+(p1/p2)+
+  plot_layout(guides = 'collect')+
+  plot_annotation(title = "Coffee rust in Ethiopia",
+                  caption = "source: Del Ponte (2022)",
+                  tag_levels = 'A')
+# En vez de +, se puede colocar | o /, para colocarlo en otros lados.
+#tambien se pueden combinar como p1 (p1+p2) para tener uno grande arriba y 2 abajo
+ggsave("patch1.png", width = 6, height = 10)
+```
+
+# #Inserciones de graficos sobre graficos
+
+#Se pueden colocar graficos insertandolos sobre otros.
+
+```{r}
+p3 <- cr_oromia |>
+  ggplot(aes(x=sev2))+
+  geom_histogram()
+
+p1 + inset_element(p3, left = 0.6, bottom = 0.6, right = 1, top = 1)
+```
