@@ -4,23 +4,23 @@ format: html
 editor: visual
 ---
 
-# #Clase número 1.
+# Clase número 1.
 
-#Se realizan comentarios por medio de utilizar "\#"
+Se realizan comentarios por medio de utilizar "\#"
 
-#Lo primero a entender es los tipos de archivos que podemos general
+Lo primero a entender es los tipos de archivos que podemos generar
 
-\# Primero hay que hacer un proyecto, luego abrimos puede ser un documento R notebook o un Quarto.
+Primero hay que hacer un proyecto, luego abrimos puede ser un documento R notebook o un Quarto.
 
-#Primero se debe abrir un "quote" donde se establezca que estamos colocando programación de R.
+Primero se debe abrir un "quote" donde se establezca que estamos colocando programación de R.
 
 ```{r}
-
+print("Hello, world.")
 ```
 
-#En estos mismos cuadros de programación, podemos empezar a definir cuáles son nuestras bases de datos, nuestros datos dentro de las bases e incluso llamar bibliotecas con las cuales podemos analizar nuestros datos.
+En estos mismos cuadros de programación, podemos empezar a definir cuáles son nuestras bases de datos, nuestros datos dentro de las bases e incluso llamar bibliotecas con las cuales podemos analizar nuestros datos.
 
-#En el siguiente ejemplo podemos observar como a X, Y y Z se les estan atribuyendo valores.
+En el siguiente ejemplo podemos observar como a X, Y y Z se les estan atribuyendo valores.
 
 ```{r}
 x <- 10
@@ -29,7 +29,7 @@ z <- x * y
 x <- 10
 ```
 
-#Ahora, podemos observar como un data frame está siendo creado.
+# Ahora, podemos observar como un data frame está siendo creado.
 
 ```{r}
 z<- x^3
@@ -44,7 +44,7 @@ is.data.frame(A)
 is.data.frame(B)
 ```
 
-#En la siguiente línea de códigos, podemos visualizar como se abren las librerías.
+# En la siguiente línea de códigos, podemos visualizar como se abren las librerías.
 
 ```{r}
 library(agricolae)
