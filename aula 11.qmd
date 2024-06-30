@@ -1,0 +1,71 @@
+---
+title: "aula 11"
+format: html
+editor: visual
+---
+
+```{r}
+library(remotes)
+library(rnaturalearth)
+library(rnaturalearthhires)
+```
+
+```{r}
+
+world<-ne_countries()
+BRA<- ne_states(country = 'Brazil',
+                returnclass = "sf")
+library(tidyverse)
+ggplot(BRA)+
+  geom_sf(fill = 'white')
+
+MG <- BRA |>
+  filter(name_en == 'Minas Gerais')
+
+```
+
+```{r}
+library(r4pde)
+library(ggplot2)
+library(ggthemes)
+library(ggspatial)
+sbr<-RustSoybean
+
+bra<-ggplot(BRA)+
+  geom_sf(fill = "black",
+          color = "yellow",
+          linewidth = 1)+
+  geom_sf(data=MG, fill = 'white')+
+  geom_point(data = sbr, aes(longitude, latitude),
+            color = 'white')+
+            theme_map()+
+  annotation_north_arrow(which_north = "grid")
+```
+
+```{r}
+library(plotly)
+ggplotly(bra)
+```
+
+```{r}
+library(leaflet)
+leaflet() |>
+  addProviderTiles(providers$Esri.NatGeoWorldMap)|>
+  setView(lng =-42.8825, lat = -20.7546, zoom = 5)
+```
+
+```{r}
+library(leaflet)
+leaflet(sbr) |>
+  addTiles()|>
+  setView(lng =-42.8825, lat = -20.7546, zoom = 15)|>
+  addCircleMarkers(radius="severity")
+```
+
+```{r}
+library(leaflet)
+leaflet(sbr) |>
+  addTiles()|>
+  setView(lng =-42.8825, lat = -20.7546, zoom = 5)|>
+  addCircleMarkers(radius=1)
+```
