@@ -1,12 +1,12 @@
 ---
-title: "aula2"
+title: "Importar y Visualizar Datos"
 format: html
 editor: visual
 ---
 
 En esta clase se va a ver cómo abrir bases de datos desde excel, ya sea en el computador así como en un link en específico.
 
-Primero, veamos una lista de librerías que pueden ser de interés para todos nosotros:
+#### Primero, veamos una lista de librerías que pueden ser de interés para todos nosotros:
 
 ```{r}
 library(agricolae)
@@ -19,7 +19,7 @@ library(ggplot2)
 
 ```
 
-Como podemos observar, estamos llamando una base de datos que originalmente se llama "corn" y le pusimos el nombre de "dat".
+#### Como podemos observar, estamos llamando una base de datos que originalmente se llama "corn" y le pusimos el nombre de "dat".
 
 ```{r}
 library(agricolae)
@@ -27,7 +27,7 @@ dat<- data(corn)
 
 ```
 
-Vamos a traer la librería para leer exceles y se les coloca un nombre.
+#### Vamos a traer la librería para leer exceles y se les coloca un nombre.
 
 ```{r}
 df1<- multi_isolate
@@ -45,7 +45,7 @@ df3<-read_csv("dados-diversos.csv")
 
 ```
 
-#Aquí estamos viendo como abrimos una hoja de datos desde un link de google docs.
+#### Aquí estamos viendo como abrimos una hoja de datos desde un link de google docs.
 
 ```{r}
 library(gsheet)
@@ -53,9 +53,9 @@ library(gsheet)
 df4<-gsheet2tbl("https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit?gid=983033137#gid=983033137")
 ```
 
-##Gráficos.
+## Gráficos.
 
-#La librería de ggplot2 nos puede ayudar para convertir rápidamente estas bases de datos en formas gráficas para entender visualmente mejor la distribuición de estos datos.
+La librería de ggplot2 nos puede ayudar para convertir rápidamente estas bases de datos en formas gráficas para entender visualmente mejor la distribuición de estos datos.
 
 ```{r}
 library(ggplot2)

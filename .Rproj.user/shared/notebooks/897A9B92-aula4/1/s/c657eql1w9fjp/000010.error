@@ -1,0 +1,1 @@
+{"frames":[],"message":"Error en ggplot(summarise(group_by(mg, trat), mean_comp = mean(comp), : \n  no se pudo encontrar la función \"ggplot\"\n"}

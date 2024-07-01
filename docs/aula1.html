@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>FIP606 - Aula1</title>
+<title>FIP606 - Una breve introducción</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -149,11 +149,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-visualización-de-datos">    
         <li>
     <a class="dropdown-item" href="./aula3.html">
- <span class="dropdown-text">Gráficos com ggplot.</span></a>
+ <span class="dropdown-text">Gráficos con ggplot.</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./aula4.html">
- <span class="dropdown-text">Gráficos com ggplot - Parte 2.</span></a>
+ <span class="dropdown-text">Gráficos con ggplot - Parte 2.</span></a>
   </li>  
     </ul>
   </li>
@@ -213,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#clase-número-1." id="toc-clase-número-1." class="nav-link active" data-scroll-target="#clase-número-1.">Clase número 1.</a></li>
+  <li><a href="#qué-hacer-después-de-descargar-rstudio" id="toc-qué-hacer-después-de-descargar-rstudio" class="nav-link active" data-scroll-target="#qué-hacer-después-de-descargar-rstudio">¿Qué hacer después de descargar RStudio?</a></li>
   <li><a href="#ahora-podemos-observar-como-un-data-frame-está-siendo-creado." id="toc-ahora-podemos-observar-como-un-data-frame-está-siendo-creado." class="nav-link" data-scroll-target="#ahora-podemos-observar-como-un-data-frame-está-siendo-creado.">Ahora, podemos observar como un data frame está siendo creado.</a></li>
   <li><a href="#en-la-siguiente-línea-de-códigos-podemos-visualizar-como-se-abren-las-librerías." id="toc-en-la-siguiente-línea-de-códigos-podemos-visualizar-como-se-abren-las-librerías." class="nav-link" data-scroll-target="#en-la-siguiente-línea-de-códigos-podemos-visualizar-como-se-abren-las-librerías.">En la siguiente línea de códigos, podemos visualizar como se abren las librerías.</a></li>
   </ul>
@@ -224,7 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Aula1</h1>
+<h1 class="title">Una breve introducción</h1>
 </div>
 
 
@@ -241,12 +241,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="clase-número-1." class="level1">
-<h1>Clase número 1.</h1>
-<p>Se realizan comentarios por medio de utilizar “#”</p>
-<p>Lo primero a entender es los tipos de archivos que podemos generar</p>
-<p>Primero hay que hacer un proyecto, luego abrimos puede ser un documento R notebook o un Quarto.</p>
-<p>Primero se debe abrir un “quote” donde se establezca que estamos colocando programación de R.</p>
+<section id="qué-hacer-después-de-descargar-rstudio" class="level1">
+<h1>¿Qué hacer después de descargar RStudio?</h1>
+<p>¡Felicidades por descargar RStudio! Aquí te dejo una guía básica para que comiences a trabajar con R.</p>
+<section id="comentarios-en-r" class="level4">
+<h4 class="anchored" data-anchor-id="comentarios-en-r">Comentarios en R</h4>
+<p>En R, puedes añadir comentarios a tu código utilizando el símbolo <code>#</code>. Los comentarios son útiles para explicar lo que hace tu código y para recordar detalles importantes.</p>
+</section>
+<section id="tipos-de-archivos-en-rstudio" class="level4">
+<h4 class="anchored" data-anchor-id="tipos-de-archivos-en-rstudio">Tipos de Archivos en RStudio</h4>
+<p>En RStudio, puedes crear diferentes tipos de archivos para tus proyectos, como:</p>
+<ul>
+<li><p><strong>Documentos R Notebook:</strong> Útiles para combinar código, resultados y texto desde un punto de vista de programación.</p></li>
+<li><p><strong>Documentos Quarto:</strong> Ideales para crear informes y documentos interactivos, así también se pueden crear cosas como esta página web.</p></li>
+</ul>
+</section>
+<section id="escribir-y-ejecutar-código-en-r" class="level4">
+<h4 class="anchored" data-anchor-id="escribir-y-ejecutar-código-en-r">Escribir y Ejecutar Código en R</h4>
+<p>Dentro de tu documento, puedes escribir bloques de código R. Para indicar que estás escribiendo código R, utiliza comillas invertidas seguidas de <code>{r}</code> y cierra el bloque con comillas invertidas triples.</p>
+<p>Ejemplo:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Hello, world."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -261,6 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x <span class="sc">*</span> y</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 </section>
 <section id="ahora-podemos-observar-como-un-data-frame-está-siendo-creado." class="level1">
 <h1>Ahora, podemos observar como un data frame está siendo creado.</h1>

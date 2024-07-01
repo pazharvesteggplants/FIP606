@@ -1,12 +1,12 @@
 ---
-title: "aula4"
+title: "Gráficos con ggplot - 2"
 format: html
 editor: visual
 ---
 
-# #Importación de datos
+# Importación de datos
 
-#Gracias al paquete datapasta, podemos copiar y pegar bases de datos como si fueran bases de datos en codigo python utilizando paste as tribble o dataframe.
+Gracias al paquete datapasta, podemos copiar y pegar bases de datos como si fueran bases de datos en codigo python utilizando paste as tribble o dataframe.
 
 ```{r}
 library(datapasta)
@@ -45,7 +45,9 @@ comp
 
 ```
 
-#Desde una pagina web podemos obtener datos, copiar las tablas y pegarlas como data frame listas, asi como en el siguiente ejemplo tomado de la pagina web
+# Tribble
+
+Desde una pagina web podemos obtener datos, copiar las tablas y pegarlas como data frame listas, asi como en el siguiente ejemplo tomado de la pagina web
 
 ```{r}
 poblaciones <- tibble::tribble(
@@ -153,9 +155,9 @@ pepper |>
            label = "2")
 ```
 
-## #Tabla de contingencia.
+## Tabla de contingencia.
 
-#Con `count` podemos hacer un conteo según lo que necesitemos, en este caso, se contaron los datos según fueran una región y una zona específica.
+Con `count` podemos hacer un conteo según lo que necesitemos, en este caso, se contaron los datos según fueran una región y una zona específica.
 
 ```{r}
 cr <- read_csv("https://raw.githubusercontent.com/emdelponte/paper-coffee-rust-Ethiopia/master/data/survey_clean.csv")
@@ -209,7 +211,9 @@ mg|>
                     width = 0.1))
 ```
 
-Gráfico de bigotes. acerca de la media.
+# Grafico de bigotes.
+
+Muestra los límites mínimo, máximo y la media.
 
 ```{r}
 mg|>

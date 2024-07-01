@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>FIP606 - Aula5</title>
+<title>FIP606 - Análisis Descriptivo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -149,11 +149,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-visualización-de-datos">    
         <li>
     <a class="dropdown-item" href="./aula3.html">
- <span class="dropdown-text">Gráficos com ggplot.</span></a>
+ <span class="dropdown-text">Gráficos con ggplot.</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./aula4.html">
- <span class="dropdown-text">Gráficos com ggplot - Parte 2.</span></a>
+ <span class="dropdown-text">Gráficos con ggplot - Parte 2.</span></a>
   </li>  
     </ul>
   </li>
@@ -209,14 +209,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#llamado-de-librerias" id="toc-llamado-de-librerias" class="nav-link active" data-scroll-target="#llamado-de-librerias">Llamado de librerias</a></li>
+  <li><a href="#primero-visualicemos-las-diferencias-entre-la-primera-prueba-y-la-segunda." id="toc-primero-visualicemos-las-diferencias-entre-la-primera-prueba-y-la-segunda." class="nav-link" data-scroll-target="#primero-visualicemos-las-diferencias-entre-la-primera-prueba-y-la-segunda.">Primero visualicemos las diferencias entre la primera prueba y la segunda.</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Aula5</h1>
+<h1 class="title">Análisis Descriptivo</h1>
 </div>
 
 
@@ -233,7 +240,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Llamado de librerias</p>
+<section id="llamado-de-librerias" class="level2">
+<h2 class="anchored" data-anchor-id="llamado-de-librerias">Llamado de librerias</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span> (tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -241,11 +249,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gsheet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>#A continuación se presentará una base de datos de las calificaciones que los estudiantes del cursos FIP 606 recibieron en las dos primeras pruebas cortas realizadas por el profesor Emerson Delponte</p>
+<p>A continuación se presentará una base de datos de las calificaciones que los estudiantes del cursos FIP 606 recibieron en las dos primeras pruebas cortas realizadas por el profesor Emerson Delponte</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Datos <span class="ot">&lt;-</span> <span class="fu">gsheet2tbl</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit#gid=1092065531"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>#Vamos a realizar una visualizacion de los datos de manera general:</p>
+<p>Vamos a realizar una visualizacion de los datos de manera general:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Datos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -258,8 +266,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  Max.   :2.0   Max.   :16.00   Max.   :100.00  </code></pre>
 </div>
 </div>
-<p>#Con esto, podemos entender que la nota menor es de 42.9, la mediana esta en 85.70, la media esta en 79.4 y hubieron pesonas con la calificacion mas alta.</p>
-<p>#Primero visualicemos las diferencias entre la primera prueba y la segunda.</p>
+<p>Con esto, podemos entender que la nota menor es de 42.9, la mediana esta en 85.70, la media esta en 79.4 y hubieron pesonas con la calificacion mas alta.</p>
+</section>
+<section id="primero-visualicemos-las-diferencias-entre-la-primera-prueba-y-la-segunda." class="level2">
+<h2 class="anchored" data-anchor-id="primero-visualicemos-las-diferencias-entre-la-primera-prueba-y-la-segunda.">Primero visualicemos las diferencias entre la primera prueba y la segunda.</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Datos<span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(prova)<span class="sc">|&gt;</span></span>
@@ -276,8 +286,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 2     2  79.3   84.4    19.7   43.8   100</code></pre>
 </div>
 </div>
-<p>#Una vez comparadas, podemos entender que a vista de datos, no existe muchas diferencias entre los resultados de ambas pruebas.</p>
-<p>#Ahora, con esto podemos darnos cuenta de que las calificaciones estuvieron en un promedio mayor a 70 (tomando en cuenta que la desviacion es de +-19 puntos), sin embargo visualizar los datos de manera grafica puede ayudarnos a entender.</p>
+<p>Una vez comparadas, podemos entender que a vista de datos, no existe muchas diferencias entre los resultados de ambas pruebas.</p>
+<p>Ahora, con esto podemos darnos cuenta de que las calificaciones estuvieron en un promedio mayor a 70 (tomando en cuenta que la desviacion es de +-19 puntos), sin embargo visualizar los datos de manera grafica puede ayudarnos a entender.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Datos <span class="sc">|&gt;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(prova,nota))<span class="sc">+</span></span>
@@ -296,7 +306,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>#Observemos esto mismo en un grafico de violin</p>
+<p>Observemos esto mismo en un grafico de violin</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Datos<span class="sc">|&gt;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> prova, <span class="at">y =</span> nota))<span class="sc">+</span></span>
@@ -315,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>#Ahora, observemos las frecuencias de los datos para la primera y segunda prueba.</p>
+<p>Ahora, observemos las frecuencias de los datos para la primera y segunda prueba.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Datos<span class="sc">|&gt;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span> (<span class="fu">aes</span>(<span class="at">x =</span> nota))<span class="sc">+</span></span>
@@ -334,8 +344,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>#Como podemos observar, el grupo con mayor frecuencia esta en el rango de la maxima calificacion.</p>
-<p>#Ahora, para poder concluir este analisis, es importante saber cuantas calificaciones estan entre el rango de 70 a 100, por lo que con el siguiente codigo podemos hacerlo:</p>
+<p>Como podemos observar, el grupo con mayor frecuencia esta en el rango de la maxima calificacion.</p>
+<p>Ahora, para poder concluir este analisis, es importante saber cuantas calificaciones estan entre el rango de 70 a 100, por lo que con el siguiente codigo podemos hacerlo:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Total de datos prueba 1: 22</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Total de datos prueba 2: 22</span></span>
@@ -376,10 +386,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 59.09091</code></pre>
 </div>
 </div>
-<p>#Por lo tanto, podemos concluir que para ambas pruebas, mas de la mitad de estudiantes pasaron los examenes cortos.</p>
-<p>#Los estudiantes que pasaron la segunda prueba son menos de los que pasaron la primera prueba.</p>
+<p>Por lo tanto, podemos concluir que para ambas pruebas, mas de la mitad de estudiantes pasaron los examenes cortos.</p>
+<p>Los estudiantes que pasaron la segunda prueba son menos de los que pasaron la primera prueba.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

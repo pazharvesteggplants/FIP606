@@ -1,5 +1,5 @@
 ---
-title: "aula 11"
+title: "Visualización de Mapas"
 format: html
 editor: visual
 ---

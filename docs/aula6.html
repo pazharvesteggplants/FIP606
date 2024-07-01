@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>FIP606 - aula 6 y 7</title>
+<title>FIP606 - Test T y Anova</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -149,11 +149,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-visualización-de-datos">    
         <li>
     <a class="dropdown-item" href="./aula3.html">
- <span class="dropdown-text">Gráficos com ggplot.</span></a>
+ <span class="dropdown-text">Gráficos con ggplot.</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./aula4.html">
- <span class="dropdown-text">Gráficos com ggplot - Parte 2.</span></a>
+ <span class="dropdown-text">Gráficos con ggplot - Parte 2.</span></a>
   </li>  
     </ul>
   </li>
@@ -213,12 +213,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#dos-grupos-dependientes." id="toc-dos-grupos-dependientes." class="nav-link active" data-scroll-target="#dos-grupos-dependientes.">Dos grupos dependientes.</a>
+  <li><a href="#parametrico" id="toc-parametrico" class="nav-link active" data-scroll-target="#parametrico">Parametrico</a></li>
+  <li><a href="#no-parametrico" id="toc-no-parametrico" class="nav-link" data-scroll-target="#no-parametrico">No parametrico</a></li>
+  <li><a href="#dos-grupos-dependientes." id="toc-dos-grupos-dependientes." class="nav-link" data-scroll-target="#dos-grupos-dependientes.">Dos grupos dependientes.</a></li>
+  <li><a href="#test-no-paramétrico" id="toc-test-no-paramétrico" class="nav-link" data-scroll-target="#test-no-paramétrico">Test no paramétrico</a></li>
+  <li><a href="#analisis-exploratorio-3-o-mas-grupos" id="toc-analisis-exploratorio-3-o-mas-grupos" class="nav-link" data-scroll-target="#analisis-exploratorio-3-o-mas-grupos">Analisis exploratorio: 3 o mas grupos</a></li>
+  <li><a href="#base-de-datos-insecticida." id="toc-base-de-datos-insecticida." class="nav-link" data-scroll-target="#base-de-datos-insecticida.">Base de datos: Insecticida.</a>
   <ul class="collapse">
   <li><a href="#alternativa-1---transformacion." id="toc-alternativa-1---transformacion." class="nav-link" data-scroll-target="#alternativa-1---transformacion.">Alternativa 1 - Transformacion.</a></li>
   <li><a href="#alternativa-2---no-parametrico" id="toc-alternativa-2---no-parametrico" class="nav-link" data-scroll-target="#alternativa-2---no-parametrico">Alternativa 2 - no parametrico</a></li>
   <li><a href="#alternativa-3-glms" id="toc-alternativa-3-glms" class="nav-link" data-scroll-target="#alternativa-3-glms">Alternativa 3 GLMs</a></li>
   <li><a href="#anova-factorial" id="toc-anova-factorial" class="nav-link" data-scroll-target="#anova-factorial">Anova Factorial</a></li>
+  <li><a href="#modelo-factorial-twoway-anova" id="toc-modelo-factorial-twoway-anova" class="nav-link" data-scroll-target="#modelo-factorial-twoway-anova">Modelo factorial (twoway anova)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -228,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">aula 6 y 7</h1>
+<h1 class="title">Test T y Anova</h1>
 </div>
 
 
@@ -262,10 +268,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Parametrico</p>
+<section id="parametrico" class="level1">
+<h1>Parametrico</h1>
 <p>El test T tiene Paired (TRUE) y Non Paired (FALSE) Es cuando tengo variables dependientes o independientes.</p>
 <p>Luego tenemos variancias Var.test, si este da menor a 0,05 tenemos Var.Equal = False.</p>
-<p>No parametrico</p>
+</section>
+<section id="no-parametrico" class="level1">
+<h1>No parametrico</h1>
 <p>Willcox.test (Paired = True False) Este solo se usa para variables dependientes.</p>
 <p>MannWhitney es para variables independientes.</p>
 <div class="cell">
@@ -398,6 +407,7 @@ statistically significant, and large (difference = -5.16, 95% CI [-6.49,
 -3.83], t(18) = -8.15, p &lt; .001; Cohen's d = -3.65, 95% CI [-5.10, -2.16])</code></pre>
 </div>
 </div>
+</section>
 <section id="dos-grupos-dependientes." class="level1">
 <h1>Dos grupos dependientes.</h1>
 <div class="cell">
@@ -473,7 +483,9 @@ ratio of variances
           20.97847 </code></pre>
 </div>
 </div>
-<p>##Test no paramétrico</p>
+</section>
+<section id="test-no-paramétrico" class="level1">
+<h1>Test no paramétrico</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(escala2<span class="sc">$</span>Aided1,</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>            escala2<span class="sc">$</span>Unaided,</span>
@@ -488,7 +500,9 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Al ser menor de 0,05 se rechaza la hipotesis nula.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>##Analisis exploratorio: 3 o mas grupos</p>
+</section>
+<section id="analisis-exploratorio-3-o-mas-grupos" class="level1">
+<h1>Analisis exploratorio: 3 o mas grupos</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>micelial<span class="ot">&lt;-</span><span class="fu">gsheet2tbl</span>(<span class="st">'https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit#gid=959387827'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -594,7 +608,9 @@ NOTE: If two or more means share the same grouping symbol,
 </div>
 </div>
 </div>
-<p>#Aula 7</p>
+</section>
+<section id="base-de-datos-insecticida." class="level1">
+<h1>Base de datos: Insecticida.</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>theme_base</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -640,7 +656,7 @@ NOTE: If two or more means share the same grouping symbol,
 </div>
 </div>
 </div>
-<p>#Se genero un boxplot para ver que sucede dentro de los datos de una manera mas facil #Primero se deben trabajar con los residuos de anova, para ajustar la anova para poder realizar todos los test que necesitamos.</p>
+<p>Se genero un boxplot para ver que sucede dentro de los datos de una manera mas facil. Primero se deben trabajar con los residuos de anova, para ajustar la anova para poder realizar todos los test que necesitamos.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>m1<span class="ot">&lt;-</span> <span class="fu">lm</span>(count <span class="sc">~</span> spray,</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> insecticida)</span>
@@ -1213,7 +1229,9 @@ NOTE: If two or more means share the same grouping symbol,
 </div>
 </div>
 </div>
-<p>##Modelo factorial (twoway anova)</p>
+</section>
+<section id="modelo-factorial-twoway-anova" class="level2">
+<h2 class="anchored" data-anchor-id="modelo-factorial-twoway-anova">Modelo factorial (twoway anova)</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a>mf <span class="ot">&lt;-</span> <span class="fu">lm</span>(severity <span class="sc">~</span> treat<span class="sc">*</span><span class="fu">factor</span>(dose),</span>
 <span id="cb126-2"><a href="#cb126-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">data=</span> li)</span>

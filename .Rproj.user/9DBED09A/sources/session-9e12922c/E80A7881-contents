@@ -1,5 +1,5 @@
 ---
-title: "aula 6 y 7"
+title: "Test T y Anova"
 format: html
 editor: visual
 ---
@@ -16,13 +16,13 @@ mg |>
   geom_boxplot()
 ```
 
-Parametrico
+# Parametrico
 
 El test T tiene Paired (TRUE) y Non Paired (FALSE) Es cuando tengo variables dependientes o independientes.
 
 Luego tenemos variancias Var.test, si este da menor a 0,05 tenemos Var.Equal = False.
 
-No parametrico
+# No parametrico
 
 Willcox.test (Paired = True False) Este solo se usa para variables dependientes.
 
@@ -101,7 +101,7 @@ A<-var.test(escala2$Unaided, escala2$Aided1,
 A
 ```
 
-##Test no paramétrico
+# Test no paramétrico
 
 ```{r}
 wilcox.test(escala2$Aided1,
@@ -111,7 +111,7 @@ wilcox.test(escala2$Aided1,
 
 ```
 
-##Analisis exploratorio: 3 o mas grupos
+# Analisis exploratorio: 3 o mas grupos
 
 ```{r}
 micelial<-gsheet2tbl('https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit#gid=959387827')
@@ -154,7 +154,7 @@ library(DHARMa)
 plot(simulateResiduals(ml))
 ```
 
-#Aula 7
+# Base de datos: Insecticida.
 
 ```{r}
 library(ggthemes)
@@ -170,7 +170,7 @@ insecticida |>
            geom_boxplot()
 ```
 
-#Se genero un boxplot para ver que sucede dentro de los datos de una manera mas facil #Primero se deben trabajar con los residuos de anova, para ajustar la anova para poder realizar todos los test que necesitamos.
+Se genero un boxplot para ver que sucede dentro de los datos de una manera mas facil. Primero se deben trabajar con los residuos de anova, para ajustar la anova para poder realizar todos los test que necesitamos.
 
 ```{r}
 m1<- lm(count ~ spray,
@@ -313,7 +313,7 @@ li |>
 
 ```
 
-##Modelo factorial (twoway anova)
+## Modelo factorial (twoway anova)
 
 ```{r}
 mf <- lm(severity ~ treat*factor(dose),

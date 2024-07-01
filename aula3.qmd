@@ -1,18 +1,18 @@
 ---
-title: "aula3"
+title: "Gráficos con ggplot"
 format: html
 editor: visual
 warning: false
 message: false
 ---
 
-# #Visualizacion
+# Visualizacion
 
-#Vamos a utilizar la biblioteca ggplot2 para visualizar los conjuntos de datos de la base de datos de roya en unas fincas y jardines con cafe en Etiopia.
+Vamos a utilizar la biblioteca ggplot2 para visualizar los conjuntos de datos de la base de datos de roya en unas fincas y jardines con cafe en Etiopia.
 
-#### #Histograma
+## Histograma
 
-#A continuacion, tenemos un histograma de la incidencia segun la region
+A continuacion, tenemos un histograma de la incidencia segun la region
 
 ```{r}
 
@@ -31,7 +31,7 @@ cr|>
 # Multimodal significa tener varios picos, es decir que este gráfico puede considerarse un histograma multimodal.
 ```
 
-Este histograma demuestra la severidad según la región
+### Este histograma demuestra la severidad según la región
 
 ```{r}
 cr |>
@@ -40,7 +40,7 @@ cr |>
   facet_wrap(~region)
 ```
 
-#### Grafico de Puntos
+## Grafico de Puntos
 
 Este es un grafico de dispersion en el cual podremos ver visualmente la interaccion de la severidad con la incidencia.
 
@@ -58,9 +58,9 @@ cr |>
 
 ```
 
-# ##Boxplot
+## Boxplot
 
-#Los gráficos de boxplot pueden utilizarse para realizar visualizaciones rápidas de los datos.
+Los gráficos de boxplot pueden utilizarse para realizar visualizaciones rápidas de los datos.
 
 ```{r}
 cr|>
@@ -69,8 +69,7 @@ cr|>
   facet_wrap(~region)
 ```
 
-\
-#Aquí estamos aplicando la media, la mediana y la desviación estandar de la severidad.
+Aquí estamos aplicando la media, la mediana y la desviación estandar de la severidad.
 
 ```{r}
 cr |>
@@ -79,7 +78,7 @@ summarize (sev_med = median(sev2),
            sev_sd = sd(sev2))
 ```
 
-#Ahora, trabajaremos con una serie de histogramas que nos permitan ver las diferencias entre regiones y cultivares según la severidad.
+Ahora, trabajaremos con una serie de histogramas que nos permitan ver las diferencias entre regiones y cultivares según la severidad.
 
 ```{r}
 library(ggthemes)
@@ -114,13 +113,13 @@ cr |>
   ggsave("crl2.png", bg= "white")
 ```
 
-### #Creacion de subconjuntos
+# Creacion de subconjuntos
 
-#Se seleccionan conjuntos especificos.
+Se seleccionan conjuntos especificos.
 
-#En este caso se filtraron los datos para la region de Oromia, lo que deja 165 lineas en 4 variables, lo mismo con SNNPR.
+En este caso se filtraron los datos para la region de Oromia, lo que deja 165 lineas en 4 variables, lo mismo con SNNPR.
 
-#Esto sucede gracias a las funciones `select` y `filter`, estos son de la biblioteca **dplyr**.
+Esto sucede gracias a las funciones `select` y `filter`, estos son de la biblioteca **dplyr**.
 
 ```{r}
 #Filtrado region Oromia
@@ -134,7 +133,7 @@ cr_pr<- cr |>
 
 ```
 
-##Visualizacion de los subconjuntos
+## Visualizacion de los subconjuntos
 
 Se utilizaran graficos ggplot para cada subconjunto.
 
@@ -158,7 +157,7 @@ p2
 #Queremos colocar ambos graficos uno al lado del otro, utilizaremos la biblioteca patchwork
 ```
 
-#Aquí es importante saber que con la librería patchwork, podemos unir diferentes componentes gráficos en una sola imágen.
+Aquí es importante saber que con la librería patchwork, podemos unir diferentes componentes gráficos en una sola imágen.
 
 ```{r}
 library(patchwork)
@@ -173,9 +172,9 @@ library(patchwork)
 ggsave("patch1.png", width = 6, height = 10)
 ```
 
-# #Inserciones de graficos sobre graficos
+# Inserciones de graficos sobre graficos
 
-#Se pueden colocar graficos insertandolos sobre otros.
+Se pueden colocar graficos insertandolos sobre otros.
 
 ```{r}
 p3 <- cr_oromia |>

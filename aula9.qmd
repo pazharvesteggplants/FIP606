@@ -1,10 +1,8 @@
 ---
-title: "aula9"
+title: "Análisi de Modelo Mixto, Correlación y Regresión Linear."
 format: html
 editor: visual
 ---
-
-# Análisi de Modelo Mixto, Correlación y Regresión Linear.
 
 ## Pudrición de maíz.
 

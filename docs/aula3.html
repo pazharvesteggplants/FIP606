@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>FIP606 - aula3</title>
+<title>FIP606 - Gráficos con ggplot</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -149,11 +149,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-visualización-de-datos">    
         <li>
     <a class="dropdown-item" href="./aula3.html">
- <span class="dropdown-text">Gráficos com ggplot.</span></a>
+ <span class="dropdown-text">Gráficos con ggplot.</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./aula4.html">
- <span class="dropdown-text">Gráficos com ggplot - Parte 2.</span></a>
+ <span class="dropdown-text">Gráficos con ggplot - Parte 2.</span></a>
   </li>  
     </ul>
   </li>
@@ -213,12 +213,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#visualizacion" id="toc-visualizacion" class="nav-link active" data-scroll-target="#visualizacion">#Visualizacion</a></li>
-  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot">##Boxplot</a>
+  <li><a href="#visualizacion" id="toc-visualizacion" class="nav-link active" data-scroll-target="#visualizacion">Visualizacion</a>
   <ul class="collapse">
-  <li><a href="#creacion-de-subconjuntos" id="toc-creacion-de-subconjuntos" class="nav-link" data-scroll-target="#creacion-de-subconjuntos">#Creacion de subconjuntos</a></li>
+  <li><a href="#histograma" id="toc-histograma" class="nav-link" data-scroll-target="#histograma">Histograma</a>
+  <ul class="collapse">
+  <li><a href="#este-histograma-demuestra-la-severidad-según-la-región" id="toc-este-histograma-demuestra-la-severidad-según-la-región" class="nav-link" data-scroll-target="#este-histograma-demuestra-la-severidad-según-la-región">Este histograma demuestra la severidad según la región</a></li>
   </ul></li>
-  <li><a href="#inserciones-de-graficos-sobre-graficos" id="toc-inserciones-de-graficos-sobre-graficos" class="nav-link" data-scroll-target="#inserciones-de-graficos-sobre-graficos">#Inserciones de graficos sobre graficos</a></li>
+  <li><a href="#grafico-de-puntos" id="toc-grafico-de-puntos" class="nav-link" data-scroll-target="#grafico-de-puntos">Grafico de Puntos</a></li>
+  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot">Boxplot</a></li>
+  </ul></li>
+  <li><a href="#creacion-de-subconjuntos" id="toc-creacion-de-subconjuntos" class="nav-link" data-scroll-target="#creacion-de-subconjuntos">Creacion de subconjuntos</a>
+  <ul class="collapse">
+  <li><a href="#visualizacion-de-los-subconjuntos" id="toc-visualizacion-de-los-subconjuntos" class="nav-link" data-scroll-target="#visualizacion-de-los-subconjuntos">Visualizacion de los subconjuntos</a></li>
+  </ul></li>
+  <li><a href="#inserciones-de-graficos-sobre-graficos" id="toc-inserciones-de-graficos-sobre-graficos" class="nav-link" data-scroll-target="#inserciones-de-graficos-sobre-graficos">Inserciones de graficos sobre graficos</a></li>
   </ul>
 </nav>
     </div>
@@ -227,7 +235,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">aula3</h1>
+<h1 class="title">Gráficos con ggplot</h1>
 </div>
 
 
@@ -245,11 +253,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <section id="visualizacion" class="level1">
-<h1>#Visualizacion</h1>
-<p>#Vamos a utilizar la biblioteca ggplot2 para visualizar los conjuntos de datos de la base de datos de roya en unas fincas y jardines con cafe en Etiopia.</p>
-<section id="histograma" class="level4">
-<h4 class="anchored" data-anchor-id="histograma">#Histograma</h4>
-<p>#A continuacion, tenemos un histograma de la incidencia segun la region</p>
+<h1>Visualizacion</h1>
+<p>Vamos a utilizar la biblioteca ggplot2 para visualizar los conjuntos de datos de la base de datos de roya en unas fincas y jardines con cafe en Etiopia.</p>
+<section id="histograma" class="level2">
+<h2 class="anchored" data-anchor-id="histograma">Histograma</h2>
+<p>A continuacion, tenemos un histograma de la incidencia segun la region</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>cr<span class="ot">&lt;-</span><span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/emdelponte/paper-coffee-rust-Ethiopia/master/data/survey_clean.csv"</span>)</span>
@@ -287,7 +295,8 @@ $ sev2            &lt;dbl&gt; 55.57986, 17.90349, 8.25120, 46.10154, 12.25167, 1
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#x es la incidencia en este caso</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Multimodal significa tener varios picos, es decir que este gráfico puede considerarse un histograma multimodal.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Este histograma demuestra la severidad según la región</p>
+<section id="este-histograma-demuestra-la-severidad-según-la-región" class="level3">
+<h3 class="anchored" data-anchor-id="este-histograma-demuestra-la-severidad-según-la-región">Este histograma demuestra la severidad según la región</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>cr <span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span> (<span class="fu">aes</span>(<span class="at">x =</span> sev2))<span class="sc">+</span></span>
@@ -302,8 +311,9 @@ $ sev2            &lt;dbl&gt; 55.57986, 17.90349, 8.25120, 46.10154, 12.25167, 1
 </div>
 </div>
 </section>
-<section id="grafico-de-puntos" class="level4">
-<h4 class="anchored" data-anchor-id="grafico-de-puntos">Grafico de Puntos</h4>
+</section>
+<section id="grafico-de-puntos" class="level2">
+<h2 class="anchored" data-anchor-id="grafico-de-puntos">Grafico de Puntos</h2>
 <p>Este es un grafico de dispersion en el cual podremos ver visualmente la interaccion de la severidad con la incidencia.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cr<span class="sc">$</span>inc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -337,10 +347,9 @@ $ sev2            &lt;dbl&gt; 55.57986, 17.90349, 8.25120, 46.10154, 12.25167, 1
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#la severidad nos sirve mucho, por lo que podemos hacer una prediccion con la incidencia, al ser el valor mas importante</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-</section>
-<section id="boxplot" class="level1">
-<h1>##Boxplot</h1>
-<p>#Los gráficos de boxplot pueden utilizarse para realizar visualizaciones rápidas de los datos.</p>
+<section id="boxplot" class="level2">
+<h2 class="anchored" data-anchor-id="boxplot">Boxplot</h2>
+<p>Los gráficos de boxplot pueden utilizarse para realizar visualizaciones rápidas de los datos.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cr<span class="sc">|&gt;</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span> (<span class="fu">aes</span>(farm,inc))<span class="sc">+</span></span>
@@ -354,8 +363,7 @@ $ sev2            &lt;dbl&gt; 55.57986, 17.90349, 8.25120, 46.10154, 12.25167, 1
 </div>
 </div>
 </div>
-<p><br>
-#Aquí estamos aplicando la media, la mediana y la desviación estandar de la severidad.</p>
+<p>Aquí estamos aplicando la media, la mediana y la desviación estandar de la severidad.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cr <span class="sc">|&gt;</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize</span> (<span class="at">sev_med =</span> <span class="fu">median</span>(sev2),</span>
@@ -368,7 +376,7 @@ $ sev2            &lt;dbl&gt; 55.57986, 17.90349, 8.25120, 46.10154, 12.25167, 1
 1    5.95     9.09   9.22</code></pre>
 </div>
 </div>
-<p>#Ahora, trabajaremos con una serie de histogramas que nos permitan ver las diferencias entre regiones y cultivares según la severidad.</p>
+<p>Ahora, trabajaremos con una serie de histogramas que nos permitan ver las diferencias entre regiones y cultivares según la severidad.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>cr <span class="sc">|&gt;</span></span>
@@ -412,11 +420,13 @@ $ sev2            &lt;dbl&gt; 55.57986, 17.90349, 8.25120, 46.10154, 12.25167, 1
 </div>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggsave</span>(<span class="st">"crl2.png"</span>, <span class="at">bg=</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="creacion-de-subconjuntos" class="level3">
-<h3 class="anchored" data-anchor-id="creacion-de-subconjuntos">#Creacion de subconjuntos</h3>
-<p>#Se seleccionan conjuntos especificos.</p>
-<p>#En este caso se filtraron los datos para la region de Oromia, lo que deja 165 lineas en 4 variables, lo mismo con SNNPR.</p>
-<p>#Esto sucede gracias a las funciones <code>select</code> y <code>filter</code>, estos son de la biblioteca <strong>dplyr</strong>.</p>
+</section>
+</section>
+<section id="creacion-de-subconjuntos" class="level1">
+<h1>Creacion de subconjuntos</h1>
+<p>Se seleccionan conjuntos especificos.</p>
+<p>En este caso se filtraron los datos para la region de Oromia, lo que deja 165 lineas en 4 variables, lo mismo con SNNPR.</p>
+<p>Esto sucede gracias a las funciones <code>select</code> y <code>filter</code>, estos son de la biblioteca <strong>dplyr</strong>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Filtrado region Oromia</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>cr_oromia<span class="ot">&lt;-</span> cr <span class="sc">|&gt;</span></span>
@@ -427,7 +437,8 @@ $ sev2            &lt;dbl&gt; 55.57986, 17.90349, 8.25120, 46.10154, 12.25167, 1
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span> (farm, region, sev2, cultivar)<span class="sc">|&gt;</span></span>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span> (region <span class="sc">==</span> <span class="st">"SNNPR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>##Visualizacion de los subconjuntos</p>
+<section id="visualizacion-de-los-subconjuntos" class="level2">
+<h2 class="anchored" data-anchor-id="visualizacion-de-los-subconjuntos">Visualizacion de los subconjuntos</h2>
 <p>Se utilizaran graficos ggplot para cada subconjunto.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span>cr_oromia <span class="sc">|&gt;</span></span>
@@ -462,7 +473,7 @@ $ sev2            &lt;dbl&gt; 55.57986, 17.90349, 8.25120, 46.10154, 12.25167, 1
 </div>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Queremos colocar ambos graficos uno al lado del otro, utilizaremos la biblioteca patchwork</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>#Aquí es importante saber que con la librería patchwork, podemos unir diferentes componentes gráficos en una sola imágen.</p>
+<p>Aquí es importante saber que con la librería patchwork, podemos unir diferentes componentes gráficos en una sola imágen.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -485,8 +496,8 @@ $ sev2            &lt;dbl&gt; 55.57986, 17.90349, 8.25120, 46.10154, 12.25167, 1
 </section>
 </section>
 <section id="inserciones-de-graficos-sobre-graficos" class="level1">
-<h1>#Inserciones de graficos sobre graficos</h1>
-<p>#Se pueden colocar graficos insertandolos sobre otros.</p>
+<h1>Inserciones de graficos sobre graficos</h1>
+<p>Se pueden colocar graficos insertandolos sobre otros.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> cr_oromia <span class="sc">|&gt;</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>sev2))<span class="sc">+</span></span>

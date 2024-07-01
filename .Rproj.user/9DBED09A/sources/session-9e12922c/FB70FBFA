@@ -3,7 +3,7 @@
     "path": "C:/Users/maryp/Documents/FIP6062/aula8.qmd",
     "project_path": "aula8.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "492463905",
     "contents": "",
     "dirty": false,
     "created": 1719715622226.0,
@@ -16,16 +16,16 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "2:0",
+        "rmdVisualModeLocation": "42:0",
         "cursorPosition": "0,0",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1719715338,
+    "lastKnownWriteTime": 1719875540,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1719872665402,
+    "last_content_update": 1719875540667,
     "read_only": false,
     "read_only_alternatives": []
 }

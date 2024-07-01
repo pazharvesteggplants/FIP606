@@ -1,18 +1,30 @@
 ---
-title: "Aula1"
+title: "Una breve introducción"
 format: html
 editor: visual
 ---
 
-# Clase número 1.
+# ¿Qué hacer después de descargar RStudio?
 
-Se realizan comentarios por medio de utilizar "\#"
+¡Felicidades por descargar RStudio! Aquí te dejo una guía básica para que comiences a trabajar con R.
 
-Lo primero a entender es los tipos de archivos que podemos generar
+#### Comentarios en R
 
-Primero hay que hacer un proyecto, luego abrimos puede ser un documento R notebook o un Quarto.
+En R, puedes añadir comentarios a tu código utilizando el símbolo `#`. Los comentarios son útiles para explicar lo que hace tu código y para recordar detalles importantes.
 
-Primero se debe abrir un "quote" donde se establezca que estamos colocando programación de R.
+#### Tipos de Archivos en RStudio
+
+En RStudio, puedes crear diferentes tipos de archivos para tus proyectos, como:
+
+-   **Documentos R Notebook:** Útiles para combinar código, resultados y texto desde un punto de vista de programación.
+
+-   **Documentos Quarto:** Ideales para crear informes y documentos interactivos, así también se pueden crear cosas como esta página web.
+
+#### Escribir y Ejecutar Código en R
+
+Dentro de tu documento, puedes escribir bloques de código R. Para indicar que estás escribiendo código R, utiliza comillas invertidas seguidas de `{r}` y cierra el bloque con comillas invertidas triples.
+
+Ejemplo:
 
 ```{r}
 print("Hello, world.")

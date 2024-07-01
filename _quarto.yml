@@ -27,9 +27,9 @@ website:
        - text: Visualización de datos
          menu:
             - href: aula3.qmd
-              text: Gráficos com ggplot.
+              text: Gráficos con ggplot.
             - href: aula4.qmd
-              text: Gráficos com ggplot - Parte 2.
+              text: Gráficos con ggplot - Parte 2.
               
        - href: aula5.qmd
          text: Análisis Descriptivo

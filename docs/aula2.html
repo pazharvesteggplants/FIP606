@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>FIP606 - aula2</title>
+<title>FIP606 - Importar y Visualizar Datos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -149,11 +149,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-visualización-de-datos">    
         <li>
     <a class="dropdown-item" href="./aula3.html">
- <span class="dropdown-text">Gráficos com ggplot.</span></a>
+ <span class="dropdown-text">Gráficos con ggplot.</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./aula4.html">
- <span class="dropdown-text">Gráficos com ggplot - Parte 2.</span></a>
+ <span class="dropdown-text">Gráficos con ggplot - Parte 2.</span></a>
   </li>  
     </ul>
   </li>
@@ -209,14 +209,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#gráficos." id="toc-gráficos." class="nav-link active" data-scroll-target="#gráficos.">Gráficos.</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">aula2</h1>
+<h1 class="title">Importar y Visualizar Datos</h1>
 </div>
 
 
@@ -234,7 +240,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>En esta clase se va a ver cómo abrir bases de datos desde excel, ya sea en el computador así como en un link en específico.</p>
-<p>Primero, veamos una lista de librerías que pueden ser de interés para todos nosotros:</p>
+<section id="primero-veamos-una-lista-de-librerías-que-pueden-ser-de-interés-para-todos-nosotros" class="level4">
+<h4 class="anchored" data-anchor-id="primero-veamos-una-lista-de-librerías-que-pueden-ser-de-interés-para-todos-nosotros">Primero, veamos una lista de librerías que pueden ser de interés para todos nosotros:</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(agricolae)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(agridat)</span>
@@ -244,12 +251,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gsheet)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Como podemos observar, estamos llamando una base de datos que originalmente se llama “corn” y le pusimos el nombre de “dat”.</p>
+</section>
+<section id="como-podemos-observar-estamos-llamando-una-base-de-datos-que-originalmente-se-llama-corn-y-le-pusimos-el-nombre-de-dat." class="level4">
+<h4 class="anchored" data-anchor-id="como-podemos-observar-estamos-llamando-una-base-de-datos-que-originalmente-se-llama-corn-y-le-pusimos-el-nombre-de-dat.">Como podemos observar, estamos llamando una base de datos que originalmente se llama “corn” y le pusimos el nombre de “dat”.</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(agricolae)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dat<span class="ot">&lt;-</span> <span class="fu">data</span>(corn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Vamos a traer la librería para leer exceles y se les coloca un nombre.</p>
+</section>
+<section id="vamos-a-traer-la-librería-para-leer-exceles-y-se-les-coloca-un-nombre." class="level4">
+<h4 class="anchored" data-anchor-id="vamos-a-traer-la-librería-para-leer-exceles-y-se-les-coloca-un-nombre.">Vamos a traer la librería para leer exceles y se les coloca un nombre.</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df1<span class="ot">&lt;-</span> multi_isolate</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -263,14 +274,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df3<span class="ot">&lt;-</span><span class="fu">read_csv</span>(<span class="st">"dados-diversos.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>#Aquí estamos viendo como abrimos una hoja de datos desde un link de google docs.</p>
+</section>
+<section id="aquí-estamos-viendo-como-abrimos-una-hoja-de-datos-desde-un-link-de-google-docs." class="level4">
+<h4 class="anchored" data-anchor-id="aquí-estamos-viendo-como-abrimos-una-hoja-de-datos-desde-un-link-de-google-docs.">Aquí estamos viendo como abrimos una hoja de datos desde un link de google docs.</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gsheet)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df4<span class="ot">&lt;-</span><span class="fu">gsheet2tbl</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1bq2N19DcZdtax2fQW9OHSGMR0X2__Z9T/edit?gid=983033137#gid=983033137"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>##Gráficos.</p>
-<p>#La librería de ggplot2 nos puede ayudar para convertir rápidamente estas bases de datos en formas gráficas para entender visualmente mejor la distribuición de estos datos.</p>
+</section>
+<section id="gráficos." class="level2">
+<h2 class="anchored" data-anchor-id="gráficos.">Gráficos.</h2>
+<p>La librería de ggplot2 nos puede ayudar para convertir rápidamente estas bases de datos en formas gráficas para entender visualmente mejor la distribuición de estos datos.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>g1<span class="ot">&lt;-</span>df4 <span class="sc">|&gt;</span></span>
@@ -301,6 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
