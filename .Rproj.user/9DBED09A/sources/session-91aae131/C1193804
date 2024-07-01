@@ -1,14 +1,14 @@
 {
-    "id": "C1B83533",
-    "path": "C:/Users/maryp/Documents/FIP6062/aula11.qmd",
-    "project_path": "aula11.qmd",
+    "id": "C1193804",
+    "path": "C:/Users/maryp/Documents/FIP6062/aula1.qmd",
+    "project_path": "aula1.qmd",
     "type": "quarto_markdown",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1719715633899.0,
+    "created": 1719715589404.0,
     "source_on_save": false,
-    "relative_order": 10,
+    "relative_order": 8,
     "properties": {
         "rmdVisualMode": "true",
         "rmdVisualWrapConfigured": "true",
@@ -16,7 +16,9 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "54:0"
+        "rmdVisualModeLocation": "2:0",
+        "cursorPosition": "0,0",
+        "scrollLine": "0"
     },
     "folds": "",
     "lastKnownWriteTime": 1719712080,

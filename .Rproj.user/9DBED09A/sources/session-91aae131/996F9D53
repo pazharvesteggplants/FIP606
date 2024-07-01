@@ -1,14 +1,14 @@
 {
-    "id": "625088F9",
-    "path": "C:/Users/maryp/Documents/FIP6062/aula5.qmd",
-    "project_path": "aula5.qmd",
+    "id": "996F9D53",
+    "path": "C:/Users/maryp/Documents/FIP6062/aula3.qmd",
+    "project_path": "aula3.qmd",
     "type": "quarto_markdown",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1719715576749.0,
+    "created": 1719715556872.0,
     "source_on_save": false,
-    "relative_order": 7,
+    "relative_order": 4,
     "properties": {
         "rmdVisualMode": "true",
         "rmdVisualWrapConfigured": "true",
@@ -16,14 +16,14 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "52:0"
+        "rmdVisualModeLocation": "2:0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1719712080,
+    "lastKnownWriteTime": 1719710554,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1719712080,
+    "last_content_update": 1719710554,
     "read_only": false,
     "read_only_alternatives": []
 }
