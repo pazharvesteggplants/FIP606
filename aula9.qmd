@@ -1,5 +1,5 @@
 ---
-title: "Análisi de Modelo Mixto, Correlación y Regresión Linear."
+title: "Análisis de Modelo Mixto, Correlación y Regresión Linear."
 format: html
 editor: visual
 ---
